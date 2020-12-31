@@ -7,6 +7,10 @@ export const generateKaggleJSON = async (): Promise<void> => {
   await page.goto(KAGGLE_CONTEST_PAGE, {
     waitUntil: ['networkidle2'],
   });
+
+  // DEBUG : Use this else console won't work inside evaluate function
+  page.on('console', (consoleObj) => console.log(consoleObj.text()));
+
   const competitionList = await page.evaluate(() => {
     const listItems = document.querySelectorAll(
       'div.sc-pkryX.tCtqx li.mdc-list-item',
@@ -20,8 +24,7 @@ export const generateKaggleJSON = async (): Promise<void> => {
       const iconUrl = item.querySelector('img').src;
       const secondaryDescription = item.querySelector('.jTyItw').textContent;
 
-      console.log(title);
-      data.concat({
+      data.push({
         title,
         description,
         link,
@@ -33,6 +36,5 @@ export const generateKaggleJSON = async (): Promise<void> => {
     return data;
   });
 
-  console.log(competitionList);
   await browser.close();
 };
