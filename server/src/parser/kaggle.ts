@@ -1,7 +1,8 @@
+import { KaggleItem } from 'src/types/kaggle';
 import * as puppeteer from 'puppeteer';
 import { KAGGLE_CONTEST_PAGE } from './urls';
 
-export const generateKaggleJSON = async (): Promise<void> => {
+export const generateKaggleJSON = async (): Promise<KaggleItem[]> => {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   await page.goto(KAGGLE_CONTEST_PAGE, {
@@ -37,4 +38,5 @@ export const generateKaggleJSON = async (): Promise<void> => {
   });
 
   await browser.close();
+  return competitionList;
 };

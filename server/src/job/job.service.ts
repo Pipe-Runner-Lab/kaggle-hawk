@@ -8,7 +8,6 @@ export class JobService {
 
   @Cron(CronExpression.EVERY_10_SECONDS)
   runKaggleParser() {
-    this.logger.debug('Running Kaggle Parser');
     generateKaggleJSON();
   }
 }
