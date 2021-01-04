@@ -802,12 +802,12 @@
         "affectsGlobalScope": false
       },
       "../src/contests/scrapper.utils.ts": {
-        "version": "37953ec00afaa446d3a8b526b755661fc0436b4693aa7cccd1515a9c02021288",
+        "version": "1401958758b22dff7a7c4cd0efd7f547300d07dfbee9b31ad013b636eba8ab0f",
         "signature": "564d8469ed68deffeb3e996026539150dcd6e50be9d11be46e7d4b66e5ce6bc0",
         "affectsGlobalScope": false
       },
       "../src/contests/update.utils.ts": {
-        "version": "1311f293649d5e578b0ad045308829677edeac0f3bbee4c8ee34e9068e162a60",
+        "version": "819dc2e112fad3cf72ec2b1ef0207fc2ccc3ef0318fe8e31893daad9cb77732f",
         "signature": "3925be256385738b75ebabfd7c08fa5d2c43eec6abdb759dd62a9b82fadcb2d5",
         "affectsGlobalScope": false
       },

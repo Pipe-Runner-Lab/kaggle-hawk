@@ -1,0 +1,12 @@
+{
+  "name": "Kaggle Hawk",
+  "version": "1.0",
+  "description": "A utility for data scientists",
+  "manifest_version": 3,
+  "permissions": [
+    "storage"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}

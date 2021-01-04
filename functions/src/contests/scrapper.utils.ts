@@ -6,7 +6,7 @@ export async function kaggleScrapper(page: any): Promise<KaggleContestItem[]> {
     waitUntil: ["networkidle2"],
   });
 
-  return page.evaluate(() => {
+  return page.evaluate((): KaggleContestItem[] => {
     const listItems = document.querySelectorAll(
       "div.sc-pkryX.tCtqx li.mdc-list-item"
     );
@@ -27,5 +27,6 @@ export async function kaggleScrapper(page: any): Promise<KaggleContestItem[]> {
         secondaryDescription,
       });
     });
+    return data;
   });
 }
