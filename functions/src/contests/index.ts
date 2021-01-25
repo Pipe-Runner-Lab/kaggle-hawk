@@ -1,9 +1,9 @@
 import * as puppeteer from "puppeteer";
 import { KaggleContestItem } from "../types/basic";
-import { kaggleScrapper } from "./scrapper.utils";
-import { updateKaggleDoc } from "./update.utils";
+import { kaggleScrapper } from "../utils/scrapper";
+import { updateKaggleDoc } from "../utils/update";
 
-export async function updateContestList(): Promise<{
+export async function generateContestList(): Promise<{
   kaggle: KaggleContestItem[];
 }> {
   const browser = await puppeteer.launch({

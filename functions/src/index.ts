@@ -1,6 +1,6 @@
 import * as functions from "firebase-functions";
 import * as admin from "firebase-admin";
-import { updateContestList, updateContestList_fs } from "./contests/index";
+import { generateContestList, updateContestList_fs } from "./contests/index";
 
 admin.initializeApp();
 
@@ -10,6 +10,6 @@ export const updateContestList_cf = functions
   })
   .pubsub.schedule("every 12 hours")
   .onRun(async (context) => {
-    const list = await updateContestList();
+    const list = await generateContestList();
     return updateContestList_fs(list);
   });

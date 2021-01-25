@@ -1,4 +1,4 @@
-import { KAGGLE_CONTEST_PAGE } from "./urls";
+import { KAGGLE_CONTEST_PAGE } from "../contests/urls";
 import { KaggleContestItem } from "../types/basic";
 
 export async function kaggleScrapper(page: any): Promise<KaggleContestItem[]> {
