@@ -3,6 +3,7 @@ import { KaggleContestItem } from "../types/basic";
 export function kaggleRemap(list: any): KaggleContestItem[] {
   return list.map((item) => ({
     id: item.id,
+    ref: item.ref,
     title: item.title,
     description: item.description,
     url: item.url,

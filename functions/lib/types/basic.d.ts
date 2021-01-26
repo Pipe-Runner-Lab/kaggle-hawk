@@ -1,5 +1,6 @@
 export declare type KaggleContestItem = {
     id: any;
+    ref: string;
     title: string;
     description: string;
     url: string;
