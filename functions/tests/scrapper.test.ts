@@ -1,19 +1,9 @@
 import { expect } from "chai";
-import { kaggleScrapper } from "../src/utils/scrapper";
-import * as puppeteer from "puppeteer";
+import { getCompetitionList } from "../src/utils/kaggle.api";
 
 describe("Scrapper tests...", () => {
-  it("Checking for empty Kaggle response", async () => {
-    const browser = await puppeteer.launch({
-      headless: true,
-      args: ["--no-sandbox", "--disable-setuid-sandbox"],
-    });
-    const page = await browser.newPage();
-    const kaggleList = await kaggleScrapper(page);
-    await browser.close();
-
-    console.log(kaggleList);
-
+  it("Kaggle response should not be empty", async () => {
+    const kaggleList = await getCompetitionList();
     expect(kaggleList).to.be.an("array").to.be.not.empty;
-  }).timeout(60000);;
+  })
 });

@@ -571,7 +571,7 @@
         "signature": "01b8fe09ea0b18ceba458308fd349bd2545227995c1b370a6897ea7c8f4ae577",
         "affectsGlobalScope": false
       },
-      "../node_modules/google-auth-library/build/src/auth/envdetect.d.ts": {
+      "../node_modules/google-auth-library/build/src/auth/envDetect.d.ts": {
         "version": "ea9efc84288c02adb551e56f59235b5b3d613993acb0cbb74f1e1169a6ddaf23",
         "signature": "ea9efc84288c02adb551e56f59235b5b3d613993acb0cbb74f1e1169a6ddaf23",
         "affectsGlobalScope": false
@@ -611,7 +611,7 @@
         "signature": "b5f5fb8682b627fabd6173249639436577a19d93a36d09599879dd9dc104ac63",
         "affectsGlobalScope": false
       },
-      "../node_modules/teeny-request/build/src/teenystatistics.d.ts": {
+      "../node_modules/teeny-request/build/src/TeenyStatistics.d.ts": {
         "version": "eb8f406406a1c933f6793410a632a125d1698cfcfb7a947c54ba498616a65f94",
         "signature": "eb8f406406a1c933f6793410a632a125d1698cfcfb7a947c54ba498616a65f94",
         "affectsGlobalScope": false
@@ -661,7 +661,7 @@
         "signature": "1cd38a2f1587f9e3e2176502e9c5a31b618dc8a056b6067496a52411dd76b383",
         "affectsGlobalScope": false
       },
-      "../node_modules/@google-cloud/storage/build/src/hmackey.d.ts": {
+      "../node_modules/@google-cloud/storage/build/src/hmacKey.d.ts": {
         "version": "f247b3137976a84658c08855bf98933f2b23610b0721a150493826bd24f17a18",
         "signature": "f247b3137976a84658c08855bf98933f2b23610b0721a150493826bd24f17a18",
         "affectsGlobalScope": false
@@ -751,7 +751,7 @@
         "signature": "0e9dcd03ba9f6dfe4ba74845cd86920b5e5de6704c4c8eac2fd292817d77773e",
         "affectsGlobalScope": false
       },
-      "../node_modules/firebase-functions/lib/providers/remoteconfig.d.ts": {
+      "../node_modules/firebase-functions/lib/providers/remoteConfig.d.ts": {
         "version": "c4c0261b12524279056993ee8223189a7025f85f29d51317d417623b0fa5c090",
         "signature": "c4c0261b12524279056993ee8223189a7025f85f29d51317d417623b0fa5c090",
         "affectsGlobalScope": false
@@ -761,7 +761,7 @@
         "signature": "496d7fa3b5a354fbe298366e17ce6bc0ecec576df7fafb63bf12f22fc47d935b",
         "affectsGlobalScope": false
       },
-      "../node_modules/firebase-functions/lib/providers/testlab.d.ts": {
+      "../node_modules/firebase-functions/lib/providers/testLab.d.ts": {
         "version": "471805944a5f2b948be9b514ab4f1206bfdf285cf07ea9749820146750ffbfe1",
         "signature": "471805944a5f2b948be9b514ab4f1206bfdf285cf07ea9749820146750ffbfe1",
         "affectsGlobalScope": false
@@ -791,35 +791,50 @@
         "signature": "5330493098e0521a330cef4377a62f045155cacab3fbe0d3ecf7fa213e614fcd",
         "affectsGlobalScope": false
       },
+      "../node_modules/axios/index.d.ts": {
+        "version": "0d892f035dbee4534f0ba096407136877595ca592f67ec9bb8a5c912b9c967e8",
+        "signature": "0d892f035dbee4534f0ba096407136877595ca592f67ec9bb8a5c912b9c967e8",
+        "affectsGlobalScope": false
+      },
+      "../src/utils/kaggle.api.ts": {
+        "version": "2acaa05adab7c3d100a7255ae9b6b78cd25f4eb9e2c9fe8675aba4726e6686fb",
+        "signature": "a30b8a05de6190655e34bc1e4d54ee98878e35db711b9ee4337fda77ac94be26",
+        "affectsGlobalScope": false
+      },
       "../src/types/basic.ts": {
-        "version": "0c65771060a77c2308d4b66d47ca7c537205714ddcafc192286f53e5b5fac635",
-        "signature": "b52bed5c827f88e20f55cc5107afbe970aec3841c63fb68e8bc6cebcd9b1bd43",
+        "version": "7e2608fad4af510e59ebb3c535efcaedf345d1f99c7f48182a8a66e8905b6022",
+        "signature": "90b77e5b40b86011f14d9f2a9789d8e873a6700f281f053ca0a5f0e7aea15ef9",
         "affectsGlobalScope": false
       },
-      "../src/contests/urls.ts": {
-        "version": "ec44eb7a1de8256224034f30aa29b9dbbe412471c69aff94145d1fc1a3943169",
-        "signature": "7923e86f32989f51ad76ef6353867649c99d6a6128134add80fcd896cf5d654b",
+      "../src/utils/kaggle.postprocess.ts": {
+        "version": "ce1fc0446095f0dc5f32501dca96c418274abc6c1d7c6ec8c894fd05a9475fd2",
+        "signature": "1db1797c39148705927160c9bc4aaafa515e7745b6bf7ff9f0d8df97e1bd5b8a",
         "affectsGlobalScope": false
       },
-      "../src/contests/scrapper.utils.ts": {
-        "version": "1401958758b22dff7a7c4cd0efd7f547300d07dfbee9b31ad013b636eba8ab0f",
-        "signature": "564d8469ed68deffeb3e996026539150dcd6e50be9d11be46e7d4b66e5ce6bc0",
-        "affectsGlobalScope": false
-      },
-      "../src/contests/update.utils.ts": {
-        "version": "819dc2e112fad3cf72ec2b1ef0207fc2ccc3ef0318fe8e31893daad9cb77732f",
+      "../src/utils/kaggle.update.ts": {
+        "version": "a00bd93597263aca31f9f6374d7766f022d7739fcc5a26adb6889b062e117442",
         "signature": "3925be256385738b75ebabfd7c08fa5d2c43eec6abdb759dd62a9b82fadcb2d5",
         "affectsGlobalScope": false
       },
+      "../src/contests/list.ts": {
+        "version": "c3bc2d4559a5fdf1a729a5a4ab14c59281bb27a5aaf3c0ddaddb0b7132782b1c",
+        "signature": "d2d9e9492f6c7a4ce86143dec496d3a9016b9dc6228b3a8b39ad311c696a073c",
+        "affectsGlobalScope": false
+      },
       "../src/contests/index.ts": {
-        "version": "7e3b8a1f3ff17ec92d1d94391900f4aebd7a5c3a2625a8820d0f3b3dc566cbef",
-        "signature": "ab2d8d1e32a9306145baa512ba2d90dec8e93a06a45092260e47f204788ec590",
+        "version": "0c6cd287a07c75f63233ef234e5710c575cc09ca6834394b6edb46be911e5ee5",
+        "signature": "9ed5f2de30ba7f8a768e6c48aefdd4cbc7a53f6b480e09c9a901783a1fea7c93",
         "affectsGlobalScope": false
       },
       "../src/index.ts": {
-        "version": "fd91081829af3b25407cd4728a5dad5a39c78b26c8960ab2adebbf4c4bc36976",
-        "signature": "5595f0567c1c476baea8510d5d729bc117cb91b346f832f364c669944257ec63",
+        "version": "b81e4048852da6a742e305480fcb81b0c05903a282ce82e526fa89b42eb8d9c8",
+        "signature": "62029cac94938ae35eb8a63d0c8479a54c1d794b781f567770ad10e09ee7151d",
         "affectsGlobalScope": false
+      },
+      "../node_modules/@types/chai/index.d.ts": {
+        "version": "2d65af67144ac8a3e835ba0bff8cd0c86ca7af3ade64ca13eab6ef42c3bd54de",
+        "signature": "2d65af67144ac8a3e835ba0bff8cd0c86ca7af3ade64ca13eab6ef42c3bd54de",
+        "affectsGlobalScope": true
       },
       "../node_modules/@types/eslint-visitor-keys/index.d.ts": {
         "version": "725d9be2fd48440256f4deb00649adffdbc5ecd282b09e89d4e200663792c34c",
@@ -906,6 +921,11 @@
         "signature": "e8465811693dfe4e96ef2b3dffda539d6edfe896961b7af37b44db2c0e48532b",
         "affectsGlobalScope": false
       },
+      "../node_modules/@types/mocha/index.d.ts": {
+        "version": "a3a5fc3a8b77a1b96277eff237a15d065d525a6c1c66b303dc98be708e30e7f8",
+        "signature": "a3a5fc3a8b77a1b96277eff237a15d065d525a6c1c66b303dc98be708e30e7f8",
+        "affectsGlobalScope": true
+      },
       "../node_modules/@types/yauzl/index.d.ts": {
         "version": "3845d3b64286c12c60d39fc90ac1cc5e47cbc951530658d2567d578b2faa1f26",
         "signature": "3845d3b64286c12c60d39fc90ac1cc5e47cbc951530658d2567d578b2faa1f26",
@@ -925,6 +945,7 @@
       "experimentalDecorators": true,
       "allowSyntheticDefaultImports": true,
       "incremental": true,
+      "watch": true,
       "configFilePath": "../tsconfig.json"
     },
     "referencedMap": {
@@ -996,7 +1017,7 @@
         "../node_modules/@types/node/index.d.ts",
         "../node_modules/@types/node/stream.d.ts"
       ],
-      "../node_modules/@google-cloud/storage/build/src/hmackey.d.ts": [
+      "../node_modules/@google-cloud/storage/build/src/hmacKey.d.ts": [
         "../node_modules/@google-cloud/common/build/src/index.d.ts",
         "../node_modules/@google-cloud/storage/build/src/storage.d.ts"
       ],
@@ -1009,7 +1030,7 @@
         "../node_modules/@google-cloud/storage/build/src/bucket.d.ts",
         "../node_modules/@google-cloud/storage/build/src/channel.d.ts",
         "../node_modules/@google-cloud/storage/build/src/file.d.ts",
-        "../node_modules/@google-cloud/storage/build/src/hmackey.d.ts",
+        "../node_modules/@google-cloud/storage/build/src/hmacKey.d.ts",
         "../node_modules/@google-cloud/storage/build/src/iam.d.ts",
         "../node_modules/@google-cloud/storage/build/src/notification.d.ts",
         "../node_modules/@google-cloud/storage/build/src/signer.d.ts",
@@ -1029,7 +1050,7 @@
         "../node_modules/@google-cloud/storage/build/src/bucket.d.ts",
         "../node_modules/@google-cloud/storage/build/src/channel.d.ts",
         "../node_modules/@google-cloud/storage/build/src/file.d.ts",
-        "../node_modules/@google-cloud/storage/build/src/hmackey.d.ts",
+        "../node_modules/@google-cloud/storage/build/src/hmacKey.d.ts",
         "../node_modules/@types/node/index.d.ts",
         "../node_modules/@types/node/stream.d.ts"
       ],
@@ -1481,9 +1502,9 @@
         "../node_modules/firebase-functions/lib/providers/firestore.d.ts",
         "../node_modules/firebase-functions/lib/providers/https.d.ts",
         "../node_modules/firebase-functions/lib/providers/pubsub.d.ts",
-        "../node_modules/firebase-functions/lib/providers/remoteconfig.d.ts",
+        "../node_modules/firebase-functions/lib/providers/remoteConfig.d.ts",
         "../node_modules/firebase-functions/lib/providers/storage.d.ts",
-        "../node_modules/firebase-functions/lib/providers/testlab.d.ts"
+        "../node_modules/firebase-functions/lib/providers/testLab.d.ts"
       ],
       "../node_modules/firebase-functions/lib/handler-builder.d.ts": [
         "../node_modules/@types/express/index.d.ts",
@@ -1495,9 +1516,9 @@
         "../node_modules/firebase-functions/lib/providers/firestore.d.ts",
         "../node_modules/firebase-functions/lib/providers/https.d.ts",
         "../node_modules/firebase-functions/lib/providers/pubsub.d.ts",
-        "../node_modules/firebase-functions/lib/providers/remoteconfig.d.ts",
+        "../node_modules/firebase-functions/lib/providers/remoteConfig.d.ts",
         "../node_modules/firebase-functions/lib/providers/storage.d.ts",
-        "../node_modules/firebase-functions/lib/providers/testlab.d.ts"
+        "../node_modules/firebase-functions/lib/providers/testLab.d.ts"
       ],
       "../node_modules/firebase-functions/lib/index.d.ts": [
         "../node_modules/firebase-functions/lib/apps.d.ts",
@@ -1514,9 +1535,9 @@
         "../node_modules/firebase-functions/lib/providers/firestore.d.ts",
         "../node_modules/firebase-functions/lib/providers/https.d.ts",
         "../node_modules/firebase-functions/lib/providers/pubsub.d.ts",
-        "../node_modules/firebase-functions/lib/providers/remoteconfig.d.ts",
+        "../node_modules/firebase-functions/lib/providers/remoteConfig.d.ts",
         "../node_modules/firebase-functions/lib/providers/storage.d.ts",
-        "../node_modules/firebase-functions/lib/providers/testlab.d.ts"
+        "../node_modules/firebase-functions/lib/providers/testLab.d.ts"
       ],
       "../node_modules/firebase-functions/lib/providers/analytics.d.ts": [
         "../node_modules/firebase-functions/lib/cloud-functions.d.ts",
@@ -1553,7 +1574,7 @@
         "../node_modules/firebase-functions/lib/cloud-functions.d.ts",
         "../node_modules/firebase-functions/lib/function-configuration.d.ts"
       ],
-      "../node_modules/firebase-functions/lib/providers/remoteconfig.d.ts": [
+      "../node_modules/firebase-functions/lib/providers/remoteConfig.d.ts": [
         "../node_modules/firebase-functions/lib/cloud-functions.d.ts",
         "../node_modules/firebase-functions/lib/function-configuration.d.ts"
       ],
@@ -1561,7 +1582,7 @@
         "../node_modules/firebase-functions/lib/cloud-functions.d.ts",
         "../node_modules/firebase-functions/lib/function-configuration.d.ts"
       ],
-      "../node_modules/firebase-functions/lib/providers/testlab.d.ts": [
+      "../node_modules/firebase-functions/lib/providers/testLab.d.ts": [
         "../node_modules/firebase-functions/lib/cloud-functions.d.ts"
       ],
       "../node_modules/gaxios/build/src/common.d.ts": [
@@ -1595,7 +1616,7 @@
         "../node_modules/gaxios/build/src/index.d.ts",
         "../node_modules/google-auth-library/build/src/auth/computeclient.d.ts",
         "../node_modules/google-auth-library/build/src/auth/credentials.d.ts",
-        "../node_modules/google-auth-library/build/src/auth/envdetect.d.ts",
+        "../node_modules/google-auth-library/build/src/auth/envDetect.d.ts",
         "../node_modules/google-auth-library/build/src/auth/idtokenclient.d.ts",
         "../node_modules/google-auth-library/build/src/auth/jwtclient.d.ts",
         "../node_modules/google-auth-library/build/src/auth/oauth2client.d.ts",
@@ -1639,7 +1660,7 @@
       "../node_modules/google-auth-library/build/src/index.d.ts": [
         "../node_modules/google-auth-library/build/src/auth/computeclient.d.ts",
         "../node_modules/google-auth-library/build/src/auth/credentials.d.ts",
-        "../node_modules/google-auth-library/build/src/auth/envdetect.d.ts",
+        "../node_modules/google-auth-library/build/src/auth/envDetect.d.ts",
         "../node_modules/google-auth-library/build/src/auth/googleauth.d.ts",
         "../node_modules/google-auth-library/build/src/auth/iam.d.ts",
         "../node_modules/google-auth-library/build/src/auth/idtokenclient.d.ts",
@@ -1658,25 +1679,30 @@
         "../node_modules/@types/node/https.d.ts",
         "../node_modules/@types/node/index.d.ts",
         "../node_modules/@types/node/stream.d.ts",
-        "../node_modules/teeny-request/build/src/teenystatistics.d.ts"
+        "../node_modules/teeny-request/build/src/TeenyStatistics.d.ts"
       ],
       "../src/contests/index.ts": [
-        "../src/contests/scrapper.utils.ts",
-        "../src/contests/update.utils.ts",
-        "../src/types/basic.ts"
+        "../src/contests/list.ts"
       ],
-      "../src/contests/scrapper.utils.ts": [
-        "../src/contests/urls.ts",
-        "../src/types/basic.ts"
-      ],
-      "../src/contests/update.utils.ts": [
-        "../node_modules/firebase-admin/lib/index.d.ts",
-        "../src/types/basic.ts"
+      "../src/contests/list.ts": [
+        "../src/utils/kaggle.api.ts",
+        "../src/utils/kaggle.postprocess.ts",
+        "../src/utils/kaggle.update.ts"
       ],
       "../src/index.ts": [
         "../node_modules/firebase-admin/lib/index.d.ts",
         "../node_modules/firebase-functions/lib/index.d.ts",
         "../src/contests/index.ts"
+      ],
+      "../src/utils/kaggle.api.ts": [
+        "../node_modules/axios/index.d.ts"
+      ],
+      "../src/utils/kaggle.postprocess.ts": [
+        "../src/types/basic.ts"
+      ],
+      "../src/utils/kaggle.update.ts": [
+        "../node_modules/firebase-admin/lib/index.d.ts",
+        "../src/types/basic.ts"
       ]
     },
     "exportedModulesMap": {
@@ -1748,7 +1774,7 @@
         "../node_modules/@types/node/index.d.ts",
         "../node_modules/@types/node/stream.d.ts"
       ],
-      "../node_modules/@google-cloud/storage/build/src/hmackey.d.ts": [
+      "../node_modules/@google-cloud/storage/build/src/hmacKey.d.ts": [
         "../node_modules/@google-cloud/common/build/src/index.d.ts",
         "../node_modules/@google-cloud/storage/build/src/storage.d.ts"
       ],
@@ -2305,7 +2331,7 @@
         "../node_modules/firebase-functions/lib/cloud-functions.d.ts",
         "../node_modules/firebase-functions/lib/function-configuration.d.ts"
       ],
-      "../node_modules/firebase-functions/lib/providers/remoteconfig.d.ts": [
+      "../node_modules/firebase-functions/lib/providers/remoteConfig.d.ts": [
         "../node_modules/firebase-functions/lib/cloud-functions.d.ts",
         "../node_modules/firebase-functions/lib/function-configuration.d.ts"
       ],
@@ -2313,7 +2339,7 @@
         "../node_modules/firebase-functions/lib/cloud-functions.d.ts",
         "../node_modules/firebase-functions/lib/function-configuration.d.ts"
       ],
-      "../node_modules/firebase-functions/lib/providers/testlab.d.ts": [
+      "../node_modules/firebase-functions/lib/providers/testLab.d.ts": [
         "../node_modules/firebase-functions/lib/cloud-functions.d.ts"
       ],
       "../node_modules/gaxios/build/src/common.d.ts": [
@@ -2413,16 +2439,16 @@
         "../node_modules/teeny-request/build/src/teenystatistics.d.ts"
       ],
       "../src/contests/index.ts": [
-        "../src/types/basic.ts"
-      ],
-      "../src/contests/scrapper.utils.ts": [
-        "../src/types/basic.ts"
-      ],
-      "../src/contests/update.utils.ts": [
-        "../src/types/basic.ts"
+        "../src/contests/list.ts"
       ],
       "../src/index.ts": [
         "../node_modules/firebase-functions/lib/index.d.ts"
+      ],
+      "../src/utils/kaggle.postprocess.ts": [
+        "../src/types/basic.ts"
+      ],
+      "../src/utils/kaggle.update.ts": [
+        "../src/types/basic.ts"
       ]
     },
     "semanticDiagnosticsPerFile": [
@@ -2440,13 +2466,14 @@
       "../node_modules/@google-cloud/storage/build/src/bucket.d.ts",
       "../node_modules/@google-cloud/storage/build/src/channel.d.ts",
       "../node_modules/@google-cloud/storage/build/src/file.d.ts",
-      "../node_modules/@google-cloud/storage/build/src/hmackey.d.ts",
+      "../node_modules/@google-cloud/storage/build/src/hmacKey.d.ts",
       "../node_modules/@google-cloud/storage/build/src/iam.d.ts",
       "../node_modules/@google-cloud/storage/build/src/index.d.ts",
       "../node_modules/@google-cloud/storage/build/src/notification.d.ts",
       "../node_modules/@google-cloud/storage/build/src/signer.d.ts",
       "../node_modules/@google-cloud/storage/build/src/storage.d.ts",
       "../node_modules/@types/body-parser/index.d.ts",
+      "../node_modules/@types/chai/index.d.ts",
       "../node_modules/@types/connect/index.d.ts",
       "../node_modules/@types/eslint-visitor-keys/index.d.ts",
       "../node_modules/@types/express-serve-static-core/index.d.ts",
@@ -2468,6 +2495,7 @@
       "../node_modules/@types/lodash/index.d.ts",
       "../node_modules/@types/long/index.d.ts",
       "../node_modules/@types/mime/index.d.ts",
+      "../node_modules/@types/mocha/index.d.ts",
       "../node_modules/@types/node/assert.d.ts",
       "../node_modules/@types/node/async_hooks.d.ts",
       "../node_modules/@types/node/base.d.ts",
@@ -2516,6 +2544,7 @@
       "../node_modules/@types/serve-static/index.d.ts",
       "../node_modules/@types/yauzl/index.d.ts",
       "../node_modules/abort-controller/dist/abort-controller.d.ts",
+      "../node_modules/axios/index.d.ts",
       "../node_modules/event-target-shim/index.d.ts",
       "../node_modules/firebase-admin/lib/auth/index.d.ts",
       "../node_modules/firebase-admin/lib/credential/index.d.ts",
@@ -2546,16 +2575,16 @@
       "../node_modules/firebase-functions/lib/providers/firestore.d.ts",
       "../node_modules/firebase-functions/lib/providers/https.d.ts",
       "../node_modules/firebase-functions/lib/providers/pubsub.d.ts",
-      "../node_modules/firebase-functions/lib/providers/remoteconfig.d.ts",
+      "../node_modules/firebase-functions/lib/providers/remoteConfig.d.ts",
       "../node_modules/firebase-functions/lib/providers/storage.d.ts",
-      "../node_modules/firebase-functions/lib/providers/testlab.d.ts",
+      "../node_modules/firebase-functions/lib/providers/testLab.d.ts",
       "../node_modules/gaxios/build/src/common.d.ts",
       "../node_modules/gaxios/build/src/gaxios.d.ts",
       "../node_modules/gaxios/build/src/index.d.ts",
       "../node_modules/google-auth-library/build/src/auth/authclient.d.ts",
       "../node_modules/google-auth-library/build/src/auth/computeclient.d.ts",
       "../node_modules/google-auth-library/build/src/auth/credentials.d.ts",
-      "../node_modules/google-auth-library/build/src/auth/envdetect.d.ts",
+      "../node_modules/google-auth-library/build/src/auth/envDetect.d.ts",
       "../node_modules/google-auth-library/build/src/auth/googleauth.d.ts",
       "../node_modules/google-auth-library/build/src/auth/iam.d.ts",
       "../node_modules/google-auth-library/build/src/auth/idtokenclient.d.ts",
@@ -2568,8 +2597,8 @@
       "../node_modules/google-auth-library/build/src/index.d.ts",
       "../node_modules/google-auth-library/build/src/transporters.d.ts",
       "../node_modules/gtoken/build/src/index.d.ts",
+      "../node_modules/teeny-request/build/src/TeenyStatistics.d.ts",
       "../node_modules/teeny-request/build/src/index.d.ts",
-      "../node_modules/teeny-request/build/src/teenystatistics.d.ts",
       "../node_modules/typescript/lib/lib.dom.d.ts",
       "../node_modules/typescript/lib/lib.dom.iterable.d.ts",
       "../node_modules/typescript/lib/lib.es2015.collection.d.ts",
@@ -2603,11 +2632,12 @@
       "../node_modules/typescript/lib/lib.scripthost.d.ts",
       "../node_modules/typescript/lib/lib.webworker.importscripts.d.ts",
       "../src/contests/index.ts",
-      "../src/contests/scrapper.utils.ts",
-      "../src/contests/update.utils.ts",
-      "../src/contests/urls.ts",
+      "../src/contests/list.ts",
       "../src/index.ts",
-      "../src/types/basic.ts"
+      "../src/types/basic.ts",
+      "../src/utils/kaggle.api.ts",
+      "../src/utils/kaggle.postprocess.ts",
+      "../src/utils/kaggle.update.ts"
     ]
   },
   "version": "3.9.7"

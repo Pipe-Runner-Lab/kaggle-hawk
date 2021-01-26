@@ -1,7 +1,18 @@
 export type KaggleContestItem = {
+  id;
   title: string;
   description: string;
-  link: string;
-  iconUrl: string;
-  secondaryDescription: string;
+  url: string;
+  submissionsDisabled: boolean;
+  isKernelsSubmissionsOnly: boolean;
+  awardsPoints: boolean;
+  evaluationMetric: string;
+  maxDailySubmissions: number;
+  maxTeamSize: number;
+  teamCount: number;
+  organizationName: String;
+  reward: string;
+  category: string;
+  deadline: string;
+  tags: string[]
 };

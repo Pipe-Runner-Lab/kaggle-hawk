@@ -7,6 +7,8 @@ export async function updateKaggleDoc(list: KaggleContestItem[]): Promise<any> {
     return null;
   }
 
+  console.log(list);
+
   try {
     const db = admin.firestore();
     const ref = db.collection("contest_sites").doc("kaggle");

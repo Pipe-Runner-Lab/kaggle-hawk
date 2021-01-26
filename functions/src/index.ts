@@ -1,15 +1,26 @@
 import * as functions from "firebase-functions";
 import * as admin from "firebase-admin";
-import { generateContestList, updateContestList_fs } from "./contests/index";
+import { refreshContestList } from "./contests";
 
 admin.initializeApp();
 
-export const updateContestList_cf = functions
+export const refreshContestList_cf = functions
   .runWith({
     memory: "1GB",
   })
   .pubsub.schedule("every 12 hours")
   .onRun(async (context) => {
-    const list = await generateContestList();
-    return updateContestList_fs(list);
+    await refreshContestList();
+    return
   });
+
+/**
+ * Test Endpoints
+ */
+export const refreshContestList_cf_test = functions.https.onRequest(
+  async (req, res) => {
+    await refreshContestList();
+    res.send("Update Contest List CF function test complete")
+    return
+  }
+);
