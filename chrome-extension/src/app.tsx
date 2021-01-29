@@ -1,8 +1,9 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { MemoryRouter as Router, Switch, Route } from "react-router-dom";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
 import AppShell from "./components/app-shell";
+import Home from './pages/home'
 
 const theme = createMuiTheme({
   palette: {
@@ -14,11 +15,11 @@ const theme = createMuiTheme({
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Router>
+      <Router initialEntries={["/"]}>
         <Switch>
           <AppShell>
             <Route exact path="/">
-              <div>Page 1</div>
+              <Home/>
             </Route>
             <Route path="/list">
               <div>list</div>
@@ -29,7 +30,7 @@ function App() {
               </Route>
             </Route>
             <Route path="*">
-              <div>404 path</div>
+              <h3>404</h3>
             </Route>
           </AppShell>
         </Switch>

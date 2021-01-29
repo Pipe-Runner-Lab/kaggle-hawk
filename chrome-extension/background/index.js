@@ -1,21 +1,30 @@
-import firebase from "firebase/app";
-import "firebase/auth";
-import "firebase/firestore";
+import browser from "webextension-polyfill";
+import { initializeApp, fireStoreQuery } from "./firebase.utils";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyB7ePDPteLqajMV6bTBP9_QOqw7EogJY_A",
-  authDomain: "kaggle-hawk.firebaseapp.com",
-  projectId: "kaggle-hawk",
-  storageBucket: "kaggle-hawk.appspot.com",
-  messagingSenderId: "42783792066",
-  appId: "1:42783792066:web:17ac6dc0da5b6e6ec2145b",
-  measurementId: "G-TGVP9S4GMN"
-};
+initializeApp();
 
-firebase.initializeApp(firebaseConfig);
+// chrome.runtime.onInstalled.addListener(() => {
+//   chrome.storage.sync.set({ color: "#3aa757" }, () => {
+//     console.log("The color is green.");
+//   });
+// });
 
-chrome.runtime.onInstalled.addListener(() => {
-  chrome.storage.sync.set({ color: "#3aa757" }, () => {
-    console.log("The color is green.");
+// chrome.runtime.onMessage.addListener((message, sender, sendResponse)=>{
+//   console.log("Hehehe");
+//   sendResponse("Hohoho");
+// })
+
+browser.runtime.onInstalled.addListener(() => {
+  browser.storage.sync.set({ color: "#3aa757" }).then(() => {
+    console.log("local store set");
   });
+  console.log("Aur bhai sb bahdiya?");
+});
+
+browser.runtime.onMessage.addListener(async (msg, sender) => {
+  console.log("BG page received message", msg, "from", sender);
+  // return sendResponse("Hohoho");
+
+  const contestList = await fireStoreQuery.getKaggleCompetitions();
+  console.log(contestList);
 });
