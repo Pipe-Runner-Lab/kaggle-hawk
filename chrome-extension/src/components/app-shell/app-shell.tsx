@@ -10,11 +10,11 @@ import AppBar from "../app-bar";
 import Spacer from "../spacer";
 
 const useStyles = makeStyles((theme) => ({
-  root:{
-    width: '360px',
-    height: '540px',
-    display: 'flex',
-    flexDirection: 'column'
+  root: {
+    width: "400px",
+    height: "580px",
+    display: "flex",
+    flexDirection: "column",
   },
   icon: {
     color: theme.palette.text.primary,
@@ -29,7 +29,8 @@ const useStyles = makeStyles((theme) => ({
   },
   contentContainer: {
     backgroundColor: "#121212",
-    flex: 1
+    flex: 1,
+    overflow: "hidden",
   },
 }));
 
@@ -42,30 +43,28 @@ export default function AppShell({ children }: AppShellProps) {
 
   return (
     <div className={classes.root}>
-      <div>
-        <AppBar>
-          <div className={classes.iconGroup}>
-            <IconButton className={classes.iconButton}>
-              <ArrowBackIcon fontSize="small" className={classes.icon} />
-            </IconButton>
-            <IconButton className={classes.iconButton}>
-              <HomeIcon fontSize="small" className={classes.icon} />
-            </IconButton>
-          </div>
-          <Spacer />
-          <div className={classes.iconGroup}>
-            <IconButton className={classes.iconButton}>
-              <SearchIcon fontSize="small" className={classes.icon} />
-            </IconButton>
-            <IconButton className={classes.iconButton}>
-              <InfoIcon fontSize="small" className={classes.icon} />
-            </IconButton>
-            <IconButton className={classes.iconButton}>
-              <NotificationsIcon fontSize="small" className={classes.icon} />
-            </IconButton>
-          </div>
-        </AppBar>
-      </div>
+      <AppBar>
+        <div className={classes.iconGroup}>
+          <IconButton className={classes.iconButton}>
+            <ArrowBackIcon fontSize="small" className={classes.icon} />
+          </IconButton>
+          <IconButton className={classes.iconButton}>
+            <HomeIcon fontSize="small" className={classes.icon} />
+          </IconButton>
+        </div>
+        <Spacer />
+        <div className={classes.iconGroup}>
+          <IconButton className={classes.iconButton}>
+            <SearchIcon fontSize="small" className={classes.icon} />
+          </IconButton>
+          <IconButton className={classes.iconButton}>
+            <InfoIcon fontSize="small" className={classes.icon} />
+          </IconButton>
+          <IconButton className={classes.iconButton}>
+            <NotificationsIcon fontSize="small" className={classes.icon} />
+          </IconButton>
+        </div>
+      </AppBar>
       <div className={classes.contentContainer}>{children}</div>
     </div>
   );

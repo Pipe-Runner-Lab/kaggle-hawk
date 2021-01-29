@@ -3,8 +3,7 @@ import {browser} from 'webextension-polyfill-ts';
 
 export default function Home(){
   useEffect(()=>{
-    console.log("Sending message to backend");
-    browser.runtime.sendMessage(`Henlow`);
+    browser.runtime.sendMessage(`Ola...`);
   })
 
   return <div>Hey, I am home</div>

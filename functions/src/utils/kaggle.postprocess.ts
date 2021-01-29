@@ -19,5 +19,7 @@ export function kaggleRemap(list: any): KaggleContestItem[] {
     category: item.category,
     deadline: item.deadline,
     tags: item.tags.map((tag) => tag.name),
+    enabledDate: item.enabledDate,
+    mergerDeadline: item.mergerDeadline,
   }));
 }

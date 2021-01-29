@@ -16,4 +16,6 @@ export declare type KaggleContestItem = {
     category: string;
     deadline: string;
     tags: string[];
+    enabledDate: string;
+    mergerDeadline: string | null;
 };

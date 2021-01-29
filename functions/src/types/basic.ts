@@ -15,5 +15,7 @@ export type KaggleContestItem = {
   reward: string;
   category: string;
   deadline: string;
-  tags: string[]
+  tags: string[],
+  enabledDate: string,
+  mergerDeadline: string | null
 };

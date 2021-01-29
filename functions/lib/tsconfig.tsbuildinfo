@@ -802,12 +802,12 @@
         "affectsGlobalScope": false
       },
       "../src/types/basic.ts": {
-        "version": "d99db2eca89ac0361ad7f94a64d22eaca63de7b2be461480e432aa42d8ec5ac6",
-        "signature": "f2b3450d3ac9f25db02943743543e2de7bdaeef1a511226312b82a15045708f0",
+        "version": "085709ddb7db056982beacda3e4c72b63527f0638a99331c656caa03a0f34e01",
+        "signature": "3f7e01cb434eb8a06d0a2df2cc4053346647f3d2a9b70fd6e5c5981b329655ed",
         "affectsGlobalScope": false
       },
       "../src/utils/kaggle.postprocess.ts": {
-        "version": "4dd8dfca6185e9adf4b9687278c56a76c20075d8681fb33daf322c9667e4ef07",
+        "version": "2e25e95ec7d593fa862956d76972c25ef53a9ffd47467e9800ece2c93bad6de3",
         "signature": "1db1797c39148705927160c9bc4aaafa515e7745b6bf7ff9f0d8df97e1bd5b8a",
         "affectsGlobalScope": false
       },
@@ -945,7 +945,6 @@
       "experimentalDecorators": true,
       "allowSyntheticDefaultImports": true,
       "incremental": true,
-      "watch": true,
       "configFilePath": "../tsconfig.json"
     },
     "referencedMap": {

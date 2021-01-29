@@ -12,8 +12,9 @@ const firebaseConfig = {
   measurementId: "G-TGVP9S4GMN",
 };
 
-export function initializeApp() {
+function initializeApp() {
   firebase.initializeApp(firebaseConfig);
+  console.info("Firebase SDK initialized...");
 }
 
 async function getKaggleCompetitions() {
@@ -27,13 +28,18 @@ async function getKaggleCompetitions() {
     if (doc.exists) {
       return doc.data();
     }
-
-    return new Error("'kaggle' - Document not found on firestore");
+    console.error("[kaggle] document not found on FireStore");
+    return [];
   } catch (error) {
     console.error(error);
+    return [];
   }
 }
 
-export const fireStoreQuery = {
+export const fireStore = {
   getKaggleCompetitions,
+};
+
+export const fireBase = {
+  initializeApp,
 };
