@@ -5,6 +5,7 @@ import { ThemeProvider } from "@material-ui/styles";
 import AppShell from "./components/app-shell";
 import Home from "./pages/home";
 import CompetitionList from "./pages/competition-list";
+import WatchList from './pages/watch-list';
 import DataProvider from "./providers/data-provider";
 
 const theme = createMuiTheme({
@@ -17,15 +18,18 @@ const theme = createMuiTheme({
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Router initialEntries={["/competition"]}>
+      <Router initialEntries={["/competition-list"]}>
         <Switch>
           <DataProvider>
             <AppShell>
               <Route exact path="/">
                 <Home />
               </Route>
-              <Route path="/competition">
+              <Route path="/competition-list">
                 <CompetitionList />
+              </Route>
+              <Route path="/watch-list">
+                <WatchList />
               </Route>
             </AppShell>
           </DataProvider>

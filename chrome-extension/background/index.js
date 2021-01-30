@@ -1,25 +1,26 @@
 import browser from "webextension-polyfill";
-import { fireBase, fireStore } from "./firebase.utils";
-import { store } from "./store.utils";
+import { fireBase } from "./firebase.utils";
+import { kaggle } from "./kaggle";
 
 browser.runtime.onInstalled.addListener(() => {
   fireBase.initializeApp();
+  // browser.storage.local.clear();
+  kaggle.refreshKaggleList().then(() => {
+    console.info("kaggle list refreshed...");
+  });
   console.info("Background script initiated...");
 });
 
 browser.alarms.create("REFRESH_KAGGLE_LIST", {
-  delayInMinutes: 1,
+  delayInMinutes: 720,
   periodInMinutes: 720,
 });
 
 browser.alarms.onAlarm.addListener(async (alarm) => {
   switch (alarm.name) {
     case "REFRESH_KAGGLE_LIST":
+      await kaggle.refreshKaggleList();
       console.info("kaggle list refreshed...");
-      const contestList = await fireStore.getKaggleCompetitions();
-      await store.save({
-        [store.keys.KAGGLE_LIST]: contestList.contests,
-      });
       break;
     default:
       break;

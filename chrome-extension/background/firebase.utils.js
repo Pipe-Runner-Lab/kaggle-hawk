@@ -21,14 +21,33 @@ async function getKaggleCompetitions() {
   try {
     const db = firebase.firestore();
 
-    const collection = db.collection("contest_sites");
-    const docRef = collection.doc("kaggle");
+    const collection = db.collection("kaggle");
+    const docRef = collection.doc("contests");
 
     const doc = await docRef.get();
     if (doc.exists) {
-      return doc.data();
+      return doc.data().list;
     }
-    console.error("[kaggle] document not found on FireStore");
+    console.error("[contests] document not found in Kaggle collection");
+    return [];
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
+}
+
+async function getKaggleLeaderboards() {
+  try {
+    const db = firebase.firestore();
+
+    const collection = db.collection("kaggle");
+    const docRef = collection.doc("leaderboards");
+
+    const doc = await docRef.get();
+    if (doc.exists) {
+      return doc.data().contests;
+    }
+    console.error("[leaderboard] document not found on Kaggle collection");
     return [];
   } catch (error) {
     console.error(error);
@@ -38,6 +57,7 @@ async function getKaggleCompetitions() {
 
 export const fireStore = {
   getKaggleCompetitions,
+  getKaggleLeaderboards,
 };
 
 export const fireBase = {

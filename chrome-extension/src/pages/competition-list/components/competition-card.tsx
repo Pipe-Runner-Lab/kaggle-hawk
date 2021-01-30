@@ -3,6 +3,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import CustomProgressBar from "../../../components/custom-progress-bar";
 import CardGiftcardOutlinedIcon from "@material-ui/icons/CardGiftcardOutlined";
+import LinkIcon from "@material-ui/icons/Link";
+import TrendingUpIcon from "@material-ui/icons/TrendingUp";
 import ThumbUpAltOutlinedIcon from "@material-ui/icons/ThumbUpAltOutlined";
 import PeopleAltIcon from "@material-ui/icons/PeopleAlt";
 import SchoolOutlinedIcon from "@material-ui/icons/SchoolOutlined";
@@ -11,6 +13,8 @@ import BubbleChartIcon from "@material-ui/icons/BubbleChart";
 import SaveIcon from "@material-ui/icons/Save";
 import moment from "moment";
 import Spacer from "../../../components/spacer";
+import { IconButton } from "@material-ui/core";
+import { SanitizedList } from "../../../types/kaggle";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -60,6 +64,15 @@ const useStyles = makeStyles((theme) => ({
   save: {
     color: "#f06292",
   },
+  link: {
+    color: "#26c6da",
+  },
+  watchActive: {
+    color: "#ffea00",
+  },
+  watchInactive: {
+    color: "#00796b",
+  },
   chipContainer: {
     margin: theme.spacing(2, 0, 0, 0),
     display: "flex",
@@ -75,6 +88,9 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#00796b",
     padding: theme.spacing(1),
   },
+  secondaryContent: {
+    display: "flex",
+  },
   infoContainer: {
     margin: theme.spacing(2, 0, 0, 0),
     "& > * + *": {
@@ -89,29 +105,18 @@ const useStyles = makeStyles((theme) => ({
     },
     fontSize: "13px",
   },
+  additionalActionsContainer: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "flex-end",
+    "& > * + *": {
+      margin: theme.spacing(1, 0, 0, 0),
+    },
+  },
+  iconButton: {
+    padding: theme.spacing(1),
+  },
 }));
-
-type CompetitionCardProps = {
-  awardsPoints: boolean;
-  category: string;
-  deadline: string;
-  description: string;
-  evaluationMetric: string;
-  id: number;
-  isKernelsSubmissionsOnly: boolean;
-  maxDailySubmissions: 5;
-  maxTeamSize: 5;
-  organizationName: string;
-  reference: string;
-  reward: string;
-  submissionsDisabled: boolean;
-  tags: string[];
-  teamCount: number;
-  title: string;
-  url: string;
-  enabledDate: string;
-  mergerDeadline: string | null;
-};
 
 function truncate(text: string, limit: number): string {
   if (text.length > limit) {
@@ -120,46 +125,30 @@ function truncate(text: string, limit: number): string {
   return text;
 }
 
-function parseDates(
-  enabledDate: string,
-  mergerDeadline: string | null,
-  deadline: string
-) {
-  const start = moment(enabledDate);
-  const end = moment(deadline);
-  const merger = moment(mergerDeadline);
-
-  const totalDays = end.diff(start, "days");
-  const elapsedDays = moment().diff(start, "days");
-  const mergerDays = mergerDeadline ? merger.diff(start, "days") : null;
-
-  return {
-    finishedFraction: (100 * elapsedDays) / totalDays,
-    mergerFraction: (100 * mergerDays) / totalDays,
-  };
-}
+type CompetitionCardProps = {
+  toggleWatchListId: (id: number) => void;
+};
 
 export default function CompetitionCard({
-  awardsPoints,
   category,
   deadline,
   description,
   evaluationMetric,
   id,
-  isKernelsSubmissionsOnly,
   maxDailySubmissions,
   maxTeamSize,
-  organizationName,
   reference,
   reward,
-  submissionsDisabled,
   tags,
   teamCount,
   title,
   url,
   enabledDate,
   mergerDeadline,
-}: CompetitionCardProps) {
+  finishedFraction,
+  isWatched,
+  toggleWatchListId,
+}: SanitizedList & CompetitionCardProps) {
   const classes = useStyles();
 
   function renderReward(reward: string) {
@@ -184,14 +173,6 @@ export default function CompetitionCard({
     }
   }
 
-  const { finishedFraction } = parseDates(
-    enabledDate,
-    mergerDeadline,
-    deadline
-  );
-
-  console.log(finishedFraction);
-
   return (
     <Paper className={classes.root}>
       <div className={classes.titleContainer}>
@@ -211,28 +192,49 @@ export default function CompetitionCard({
             </span>
           ))}
         </div>
-        <div className={classes.infoContainer}>
-          <div className={classes.infoBlock}>
-            <PeopleAltIcon className={classes.people} fontSize="small" />
-            {maxTeamSize !== null ? (
-              <span>{`${teamCount} x ${maxTeamSize}`}</span>
-            ) : (
-              <span>{teamCount}</span>
-            )}
-          </div>
-          <div className={classes.infoBlock}>
-            <BubbleChartIcon className={classes.category} fontSize="small" />
-            <span>{category}</span>
-          </div>
-          {evaluationMetric !== null ? (
+        <div className={classes.secondaryContent}>
+          <div className={classes.infoContainer}>
             <div className={classes.infoBlock}>
-              <EqualizerIcon className={classes.metric} fontSize="small" />
-              <span>{truncate(evaluationMetric, 40)}</span>
+              <PeopleAltIcon className={classes.people} fontSize="small" />
+              {maxTeamSize !== null ? (
+                <span>{`${teamCount} x ${maxTeamSize}`}</span>
+              ) : (
+                <span>{teamCount}</span>
+              )}
             </div>
-          ) : null}
-          <div className={classes.infoBlock}>
-            <SaveIcon className={classes.save} fontSize="small" />
-            <span>{maxDailySubmissions}</span>
+            <div className={classes.infoBlock}>
+              <BubbleChartIcon className={classes.category} fontSize="small" />
+              <span>{category}</span>
+            </div>
+            {evaluationMetric !== null ? (
+              <div className={classes.infoBlock}>
+                <EqualizerIcon className={classes.metric} fontSize="small" />
+                <span>{truncate(evaluationMetric, 40)}</span>
+              </div>
+            ) : null}
+            <div className={classes.infoBlock}>
+              <SaveIcon className={classes.save} fontSize="small" />
+              <span>{maxDailySubmissions}</span>
+            </div>
+          </div>
+          <Spacer />
+          <div className={classes.additionalActionsContainer}>
+            {category !== "Getting Started" && (
+              <IconButton
+                onClick={() => toggleWatchListId(id)}
+                className={classes.iconButton}
+              >
+                <TrendingUpIcon
+                  className={
+                    isWatched ? classes.watchActive : classes.watchInactive
+                  }
+                  fontSize="small"
+                />
+              </IconButton>
+            )}
+            <IconButton className={classes.iconButton}>
+              <LinkIcon className={classes.link} fontSize="small" />
+            </IconButton>
           </div>
         </div>
       </div>
