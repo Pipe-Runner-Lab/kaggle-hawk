@@ -1,7 +1,7 @@
 import * as admin from "firebase-admin";
-import { KaggleContestItem } from "../types/basic";
+import { KaggleContestItem, KaggleLeaderboardItem } from "../types/basic";
 
-export async function updateKaggleDoc(list: KaggleContestItem[]): Promise<any> {
+async function updateContestList(list: KaggleContestItem[]): Promise<any> {
   if (!list) {
     console.warn("Empty kaggle list");
     return null;
@@ -9,15 +9,42 @@ export async function updateKaggleDoc(list: KaggleContestItem[]): Promise<any> {
 
   try {
     const db = admin.firestore();
-    const ref = db.collection("contest_sites").doc("kaggle");
+    const ref = db.collection("kaggle").doc("contests");
     const snapshot = await ref.get();
     if (snapshot.exists) {
       return ref.update({
-        contests: list,
+        list,
       });
     }
-    return null;
+    console.error("[contests] document missing in Kaggle");
+    return;
   } catch (error) {
-    throw Error("Error updating kaggle list");
+    console.error("Error updating kaggle contests list");
+    return;
   }
 }
+
+async function updateLeaderboardList(contests: {
+  [key: string]: KaggleLeaderboardItem[];
+}): Promise<any> {
+  try {
+    const db = admin.firestore();
+    const ref = db.collection("kaggle").doc("leaderboards");
+    const snapshot = await ref.get();
+    if (snapshot.exists) {
+      return ref.update({
+        contests,
+      });
+    }
+    console.error("[leaderboards] document missing in Kaggle");
+    return;
+  } catch (error) {
+    console.error("Error updating kaggle leaderboards list");
+    return;
+  }
+}
+
+export const kaggleUpdate = {
+  updateContestList,
+  updateLeaderboardList,
+};

@@ -1,4 +1,5 @@
 import axios, { AxiosRequestConfig } from "axios";
+import { KaggleContestItem, KaggleLeaderboardItem } from "../types/basic";
 
 const baseUrl = "https://www.kaggle.com/api/v1";
 
@@ -11,7 +12,7 @@ const headers = {
 /**
  * Get competition list
  */
-export async function getCompetitionList() {
+async function getCompetitionList(): Promise<KaggleContestItem[]> {
   try {
     const config: Partial<AxiosRequestConfig> = {
       method: "get",
@@ -22,7 +23,33 @@ export async function getCompetitionList() {
     const response = await axios(config);
     return response.data;
   } catch (error) {
-    console.error("Error fetching competition list from Kaggle");
+    console.error("Error fetching competition list from Kaggle", error);
     return [];
   }
 }
+
+/**
+ * Get contest leaderboard list
+ */
+async function getContestLeaderboard(
+  ref: string
+): Promise<KaggleLeaderboardItem[]> {
+  try {
+    const config: Partial<AxiosRequestConfig> = {
+      method: "get",
+      url: `${baseUrl}/competitions/${ref}/leaderboard/view`,
+      headers,
+    };
+
+    const response = await axios(config);
+    return response.data.submissions;
+  } catch (error) {
+    console.error("Error fetching contest leaderboard from Kaggle", error);
+    return [];
+  }
+}
+
+export const kaggleApi = {
+  getCompetitionList,
+  getContestLeaderboard,
+};

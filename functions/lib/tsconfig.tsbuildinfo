@@ -796,38 +796,33 @@
         "signature": "0d892f035dbee4534f0ba096407136877595ca592f67ec9bb8a5c912b9c967e8",
         "affectsGlobalScope": false
       },
-      "../src/utils/kaggle.api.ts": {
-        "version": "2acaa05adab7c3d100a7255ae9b6b78cd25f4eb9e2c9fe8675aba4726e6686fb",
-        "signature": "a30b8a05de6190655e34bc1e4d54ee98878e35db711b9ee4337fda77ac94be26",
-        "affectsGlobalScope": false
-      },
       "../src/types/basic.ts": {
-        "version": "085709ddb7db056982beacda3e4c72b63527f0638a99331c656caa03a0f34e01",
-        "signature": "3f7e01cb434eb8a06d0a2df2cc4053346647f3d2a9b70fd6e5c5981b329655ed",
+        "version": "3cf587c29e499f22056ab6f16c5fa0ccb303c514c69b2d8aec851e8b2d5e4efb",
+        "signature": "b250d6983c5c436ba05512ffdf929928bca04bdb1c5e903807a680f0e626e714",
         "affectsGlobalScope": false
       },
-      "../src/utils/kaggle.postprocess.ts": {
-        "version": "2e25e95ec7d593fa862956d76972c25ef53a9ffd47467e9800ece2c93bad6de3",
-        "signature": "1db1797c39148705927160c9bc4aaafa515e7745b6bf7ff9f0d8df97e1bd5b8a",
+      "../src/utils/kaggle.api.ts": {
+        "version": "7d04c29c3342ba02c870cee2b46fea1e4101670ed634714826ac7c345bd0a4d5",
+        "signature": "59bb833ba9a6b244df21399778e0833babeada9f52352b3ae33ee7e6c37404d9",
         "affectsGlobalScope": false
       },
       "../src/utils/kaggle.update.ts": {
-        "version": "819dc2e112fad3cf72ec2b1ef0207fc2ccc3ef0318fe8e31893daad9cb77732f",
-        "signature": "3925be256385738b75ebabfd7c08fa5d2c43eec6abdb759dd62a9b82fadcb2d5",
+        "version": "e34931fa60da5b27e10cd956f4f8a1ec10e36e78c64bf59a158e938327ae4618",
+        "signature": "6e3cd845e6b2201d0198cb2dbec5f824e0c12cdf0ad690dff05da33db23b69ed",
         "affectsGlobalScope": false
       },
-      "../src/contests/list.ts": {
-        "version": "c3bc2d4559a5fdf1a729a5a4ab14c59281bb27a5aaf3c0ddaddb0b7132782b1c",
-        "signature": "d2d9e9492f6c7a4ce86143dec496d3a9016b9dc6228b3a8b39ad311c696a073c",
+      "../src/utils/kaggle.postprocess.ts": {
+        "version": "76395070a668fdc66ff62e8f4ee822382316bcdc5eb9235e36d725b6df8a1a4c",
+        "signature": "2689a7e222cbcfaa3f6f5e5bdab021af639b33f35808eb0e813f8563a0061556",
         "affectsGlobalScope": false
       },
-      "../src/contests/index.ts": {
-        "version": "0c6cd287a07c75f63233ef234e5710c575cc09ca6834394b6edb46be911e5ee5",
-        "signature": "9ed5f2de30ba7f8a768e6c48aefdd4cbc7a53f6b480e09c9a901783a1fea7c93",
+      "../src/contests/kaggle.list.ts": {
+        "version": "88ec3c6dfff24b868f02bb84a6afc16e39dc10704b0bb4a4d13b42495b30aeef",
+        "signature": "66035575b24efc2bbae26d4b665eeb7ab17b9c94ba9f19a13c83268849d8b655",
         "affectsGlobalScope": false
       },
       "../src/index.ts": {
-        "version": "7a045a01af96b398bb513d5f7e52d0e5afd5e022a175b17e2eef3502df34cc28",
+        "version": "f535672d267ea0c10287ddd586c867cb99c417fc1670c86f1b519b927f8d3fe6",
         "signature": "62029cac94938ae35eb8a63d0c8479a54c1d794b781f567770ad10e09ee7151d",
         "affectsGlobalScope": false
       },
@@ -1680,10 +1675,8 @@
         "../node_modules/@types/node/stream.d.ts",
         "../node_modules/teeny-request/build/src/TeenyStatistics.d.ts"
       ],
-      "../src/contests/index.ts": [
-        "../src/contests/list.ts"
-      ],
-      "../src/contests/list.ts": [
+      "../src/contests/kaggle.list.ts": [
+        "../src/types/basic.ts",
         "../src/utils/kaggle.api.ts",
         "../src/utils/kaggle.postprocess.ts",
         "../src/utils/kaggle.update.ts"
@@ -1691,10 +1684,11 @@
       "../src/index.ts": [
         "../node_modules/firebase-admin/lib/index.d.ts",
         "../node_modules/firebase-functions/lib/index.d.ts",
-        "../src/contests/index.ts"
+        "../src/contests/kaggle.list.ts"
       ],
       "../src/utils/kaggle.api.ts": [
-        "../node_modules/axios/index.d.ts"
+        "../node_modules/axios/index.d.ts",
+        "../src/types/basic.ts"
       ],
       "../src/utils/kaggle.postprocess.ts": [
         "../src/types/basic.ts"
@@ -2437,11 +2431,11 @@
         "../node_modules/@types/node/stream.d.ts",
         "../node_modules/teeny-request/build/src/teenystatistics.d.ts"
       ],
-      "../src/contests/index.ts": [
-        "../src/contests/list.ts"
-      ],
       "../src/index.ts": [
         "../node_modules/firebase-functions/lib/index.d.ts"
+      ],
+      "../src/utils/kaggle.api.ts": [
+        "../src/types/basic.ts"
       ],
       "../src/utils/kaggle.postprocess.ts": [
         "../src/types/basic.ts"
@@ -2630,8 +2624,7 @@
       "../node_modules/typescript/lib/lib.esnext.intl.d.ts",
       "../node_modules/typescript/lib/lib.scripthost.d.ts",
       "../node_modules/typescript/lib/lib.webworker.importscripts.d.ts",
-      "../src/contests/index.ts",
-      "../src/contests/list.ts",
+      "../src/contests/kaggle.list.ts",
       "../src/index.ts",
       "../src/types/basic.ts",
       "../src/utils/kaggle.api.ts",

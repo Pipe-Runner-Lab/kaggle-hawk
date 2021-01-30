@@ -1,5 +1,5 @@
 export declare type KaggleContestItem = {
-    id: any;
+    id: number;
     ref: string;
     title: string;
     description: string;
@@ -18,4 +18,10 @@ export declare type KaggleContestItem = {
     tags: string[];
     enabledDate: string;
     mergerDeadline: string | null;
+};
+export declare type KaggleLeaderboardItem = {
+    teamId: number;
+    teamName: string;
+    submissionDate: string;
+    score: number;
 };

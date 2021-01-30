@@ -1,5 +1,5 @@
 export type KaggleContestItem = {
-  id;
+  id: number;
   ref: string;
   title: string;
   description: string;
@@ -15,7 +15,14 @@ export type KaggleContestItem = {
   reward: string;
   category: string;
   deadline: string;
-  tags: string[],
-  enabledDate: string,
-  mergerDeadline: string | null
+  tags: string[];
+  enabledDate: string;
+  mergerDeadline: string | null;
+};
+
+export type KaggleLeaderboardItem = {
+  teamId: number;
+  teamName: string;
+  submissionDate: string;
+  score: number;
 };

@@ -1,2 +1,6 @@
 import { KaggleContestItem } from "../types/basic";
-export declare function kaggleRemap(list: any): KaggleContestItem[];
+declare function remap(list: any): KaggleContestItem[];
+export declare const kaggleUtils: {
+    remap: typeof remap;
+};
+export {};

@@ -1,6 +1,6 @@
 import { KaggleContestItem } from "../types/basic";
 
-export function kaggleRemap(list: any): KaggleContestItem[] {
+function remap(list: any): KaggleContestItem[] {
   return list.map((item) => ({
     id: item.id,
     ref: item.ref,
@@ -23,3 +23,7 @@ export function kaggleRemap(list: any): KaggleContestItem[] {
     mergerDeadline: item.mergerDeadline,
   }));
 }
+
+export const kaggleUtils = {
+  remap,
+};
