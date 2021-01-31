@@ -15,7 +15,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function CompetitionList() {
-  const { kaggleList, toggleWatchListId } = useContext(DataContext);
+  const { kaggleList, kaggleLeaderboard, toggleWatchListId } = useContext(
+    DataContext
+  );
   // TODO: filter goes here
 
   const classes = useStyles();
@@ -29,6 +31,7 @@ export default function CompetitionList() {
           return (
             <CompetitionCard
               key={idx}
+              leaderboard={kaggleLeaderboard[item.id]}
               {...item}
               toggleWatchListId={toggleWatchListId}
             />

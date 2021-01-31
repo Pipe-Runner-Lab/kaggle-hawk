@@ -37,9 +37,16 @@ export type SanitizedList = {
   enabledDate: string;
   mergerDeadline: string;
   finishedFraction: number;
-  isWatched: boolean
+  isWatched: boolean;
 };
 
 export type RawLeaderboardObject = {
-  [key: string]: object;
+  [key: string]: LeaderboardItem[];
+};
+
+export type LeaderboardItem = {
+  teamId: number;
+  teamName: string;
+  submissionDate: string;
+  score: string;
 };

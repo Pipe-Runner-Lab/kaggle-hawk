@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { browser } from "webextension-polyfill-ts";
 import DataContext from "../../contexts/data-context";
-import { retrieve, syncRetrieve, syncSave } from "../../utils/store";
 import { SortKeys } from "../../types/sort";
 import { parseDates } from "../../utils/dates";
 import {
@@ -10,39 +9,7 @@ import {
   SanitizedList,
 } from "../../types/kaggle";
 import { sortByTimeLeft, sortByTimeLeftOp } from "../../utils/sort";
-
-function useSyncStore<T>(initialValue: T, storeKey: string): any[] {
-  const [state, setState] = useState<T>(initialValue);
-  const refreshState = () => {
-    syncRetrieve(storeKey).then((data) => {
-      data && setState(data);
-    });
-  };
-
-  const syncSetState = (value: T): void => {
-    syncSave(storeKey, value);
-    setState(value);
-  };
-
-  useEffect(() => {
-    refreshState();
-  }, []);
-  return [state, syncSetState];
-}
-
-function useStore<T>(initialValue: T, storeKey: string): any[] {
-  const [state, setState] = useState<T>(initialValue);
-  const refreshState = () => {
-    retrieve(storeKey).then((data) => {
-      data && setState(data);
-    });
-  };
-
-  useEffect(() => {
-    refreshState();
-  }, []);
-  return [state, setState, refreshState];
-}
+import { useStore, useSyncStore } from "../../hooks/store";
 
 function sanitizeKaggleList(
   data: RawContestList[],

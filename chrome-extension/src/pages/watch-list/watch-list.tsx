@@ -4,7 +4,7 @@ import Scrollbars from "react-custom-scrollbars";
 import EmptyWatchList from "../../components/empty-watch-list";
 import Loading from "../../components/loading";
 import DataContext from "../../contexts/data-context";
-import CompetitionCard from "../competition-list/components/competition-card";
+import WatchCard from "./components/watch-card";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function WatchList() {
-  const { kaggleList, toggleWatchListId, watchListIds } = useContext(
+  const { kaggleList, kaggleLeaderboard, toggleWatchListId, watchListIds } = useContext(
     DataContext
   );
 
@@ -33,7 +33,8 @@ export default function WatchList() {
           .filter((item) => watchListIds.indexOf(item.id) !== -1)
           .map((item, idx) => {
             return (
-              <CompetitionCard
+              <WatchCard
+                leaderboard={kaggleLeaderboard[item.id]}
                 key={idx}
                 {...item}
                 toggleWatchListId={toggleWatchListId}

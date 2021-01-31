@@ -18,7 +18,7 @@ const theme = createMuiTheme({
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Router initialEntries={["/competition-list"]}>
+      <Router initialEntries={["/"]}>
         <Switch>
           <DataProvider>
             <AppShell>

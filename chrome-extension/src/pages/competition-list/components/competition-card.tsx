@@ -14,7 +14,8 @@ import SaveIcon from "@material-ui/icons/Save";
 import moment from "moment";
 import Spacer from "../../../components/spacer";
 import { IconButton } from "@material-ui/core";
-import { SanitizedList } from "../../../types/kaggle";
+import { LeaderboardItem, SanitizedList } from "../../../types/kaggle";
+import { truncate } from "../../../utils/text";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -42,6 +43,7 @@ const useStyles = makeStyles((theme) => ({
     color: "#ffca28",
     fontSize: "10px",
     fontWeight: 500,
+    lineHeight: "20px",
   },
   prizes: {
     color: "#76ff03",
@@ -118,15 +120,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function truncate(text: string, limit: number): string {
-  if (text.length > limit) {
-    return text.substring(0, limit) + "...";
-  }
-  return text;
-}
-
 type CompetitionCardProps = {
   toggleWatchListId: (id: number) => void;
+  leaderboard: LeaderboardItem[];
 };
 
 export default function CompetitionCard({
@@ -148,6 +144,7 @@ export default function CompetitionCard({
   finishedFraction,
   isWatched,
   toggleWatchListId,
+  leaderboard,
 }: SanitizedList & CompetitionCardProps) {
   const classes = useStyles();
 
@@ -219,7 +216,7 @@ export default function CompetitionCard({
           </div>
           <Spacer />
           <div className={classes.additionalActionsContainer}>
-            {category !== "Getting Started" && (
+            {category !== "Getting Started" && leaderboard && (
               <IconButton
                 onClick={() => toggleWatchListId(id)}
                 className={classes.iconButton}

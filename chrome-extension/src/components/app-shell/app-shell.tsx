@@ -5,6 +5,7 @@ import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import SearchIcon from "@material-ui/icons/Search";
 import SortIcon from "@material-ui/icons/Sort";
 import TrendingUpIcon from "@material-ui/icons/TrendingUp";
+import ListAltIcon from "@material-ui/icons/ListAlt";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "../app-bar";
 import Spacer from "../spacer";
@@ -94,24 +95,38 @@ export default function AppShell({ children }: AppShellProps) {
   return (
     <div className={classes.root}>
       <AppBar>
-        <div onClick={() => history.goBack()} className={classes.iconGroup}>
-          <IconButton className={classes.iconButton}>
-            <ArrowBackIcon fontSize="small" />
-          </IconButton>
-          <IconButton className={classes.iconButton}>
-            <HomeIcon fontSize="small" />
-          </IconButton>
-        </div>
+        {location.pathname !== "/" && (
+          <div className={classes.iconGroup}>
+            <IconButton
+              onClick={() => history.goBack()}
+              className={classes.iconButton}
+            >
+              <ArrowBackIcon fontSize="small" />
+            </IconButton>
+            <IconButton
+              onClick={() => history.push("/")}
+              className={classes.iconButton}
+            >
+              <HomeIcon fontSize="small" />
+            </IconButton>
+          </div>
+        )}
         <Spacer />
         <div className={classes.iconGroup}>
-          <IconButton className={classes.iconButton}>
-            <SearchIcon fontSize="small" />
-          </IconButton>
+          {location.pathname === "/competition-list" && (
+            <IconButton
+              onClick={onOpenMenu("sort")}
+              className={classes.iconButton}
+            >
+              <SortIcon fontSize="small" />
+            </IconButton>
+          )}
           <IconButton
-            onClick={onOpenMenu("sort")}
+            disabled={location.pathname === "/competition-list"}
+            onClick={() => history.push("/competition-list")}
             className={classes.iconButton}
           >
-            <SortIcon fontSize="small" />
+            <ListAltIcon fontSize="small" />
           </IconButton>
           <IconButton
             disabled={location.pathname === "/watch-list"}
