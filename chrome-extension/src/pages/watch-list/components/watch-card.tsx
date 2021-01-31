@@ -223,7 +223,13 @@ export default function WatchCard({
                 />
               </IconButton>
             )}
-            <IconButton className={classes.iconButton}>
+            <IconButton
+              onClick={(event) => {
+                event.preventDefault();
+                window.open(url);
+              }}
+              className={classes.iconButton}
+            >
               <LinkIcon className={classes.link} fontSize="small" />
             </IconButton>
           </div>

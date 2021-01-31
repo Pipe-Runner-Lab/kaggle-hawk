@@ -2,7 +2,7 @@ import { expect } from "chai";
 import { KaggleContestItem } from "../src/types/basic";
 import { kaggleApi } from "../src/utils/kaggle.api";
 
-describe("Scrapper tests...", () => {
+describe("Kaggle API tests", () => {
   let kaggleList: KaggleContestItem[] = [];
 
   it("Kaggle contest list response should not be empty", async () => {

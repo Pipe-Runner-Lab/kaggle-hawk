@@ -218,22 +218,26 @@ export default function CompetitionCard({
           </div>
           <Spacer />
           <div className={classes.additionalActionsContainer}>
-            {category !== "Getting Started" &&
-              leaderboard &&
-              leaderboard.length >= 3 && (
-                <IconButton
-                  onClick={() => toggleWatchListId(id)}
-                  className={classes.iconButton}
-                >
-                  <TrendingUpIcon
-                    className={
-                      isWatched ? classes.watchActive : classes.watchInactive
-                    }
-                    fontSize="small"
-                  />
-                </IconButton>
-              )}
-            <IconButton className={classes.iconButton}>
+            {category !== "Getting Started" && leaderboard?.length >= 3 && (
+              <IconButton
+                onClick={() => toggleWatchListId(id)}
+                className={classes.iconButton}
+              >
+                <TrendingUpIcon
+                  className={
+                    isWatched ? classes.watchActive : classes.watchInactive
+                  }
+                  fontSize="small"
+                />
+              </IconButton>
+            )}
+            <IconButton
+              onClick={(event) => {
+                event.preventDefault();
+                window.open(url);
+              }}
+              className={classes.iconButton}
+            >
               <LinkIcon className={classes.link} fontSize="small" />
             </IconButton>
           </div>

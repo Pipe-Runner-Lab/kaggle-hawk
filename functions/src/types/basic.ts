@@ -26,3 +26,15 @@ export type KaggleLeaderboardItem = {
   submissionDate: string;
   score: number;
 };
+
+export type KaggleDiffItem = {
+  updateCycle: number;
+  score: {
+    value: number;
+    timestamp: number;
+  }[];
+  teamCount: {
+    value: number;
+    timestamp: number;
+  }[];
+};
