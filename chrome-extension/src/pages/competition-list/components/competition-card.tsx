@@ -170,6 +170,8 @@ export default function CompetitionCard({
     }
   }
 
+  console.log(title, leaderboard);
+
   return (
     <Paper className={classes.root}>
       <div className={classes.titleContainer}>
@@ -216,19 +218,21 @@ export default function CompetitionCard({
           </div>
           <Spacer />
           <div className={classes.additionalActionsContainer}>
-            {category !== "Getting Started" && leaderboard && (
-              <IconButton
-                onClick={() => toggleWatchListId(id)}
-                className={classes.iconButton}
-              >
-                <TrendingUpIcon
-                  className={
-                    isWatched ? classes.watchActive : classes.watchInactive
-                  }
-                  fontSize="small"
-                />
-              </IconButton>
-            )}
+            {category !== "Getting Started" &&
+              leaderboard &&
+              leaderboard.length >= 3 && (
+                <IconButton
+                  onClick={() => toggleWatchListId(id)}
+                  className={classes.iconButton}
+                >
+                  <TrendingUpIcon
+                    className={
+                      isWatched ? classes.watchActive : classes.watchInactive
+                    }
+                    fontSize="small"
+                  />
+                </IconButton>
+              )}
             <IconButton className={classes.iconButton}>
               <LinkIcon className={classes.link} fontSize="small" />
             </IconButton>
