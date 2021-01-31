@@ -205,12 +205,12 @@ export default function CompetitionCard({
               <BubbleChartIcon className={classes.category} fontSize="small" />
               <span>{category}</span>
             </div>
-            {evaluationMetric !== null ? (
+            {evaluationMetric && (
               <div className={classes.infoBlock}>
                 <EqualizerIcon className={classes.metric} fontSize="small" />
                 <span>{truncate(evaluationMetric, 40)}</span>
               </div>
-            ) : null}
+            )}
             <div className={classes.infoBlock}>
               <SaveIcon className={classes.save} fontSize="small" />
               <span>{maxDailySubmissions}</span>

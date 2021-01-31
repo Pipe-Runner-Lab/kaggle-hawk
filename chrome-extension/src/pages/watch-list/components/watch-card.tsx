@@ -167,6 +167,8 @@ export default function WatchCard({
     }
   }
 
+  console.log(title, leaderboard);
+
   return (
     <Paper className={classes.root}>
       <div className={classes.titleContainer}>
@@ -194,12 +196,12 @@ export default function WatchCard({
                 {moment(deadline).format("DD-MM-YYYY")}
               </span>
             </div>
-            {evaluationMetric !== null ? (
+            {evaluationMetric && (
               <div className={classes.infoBlock}>
                 <EqualizerIcon className={classes.metric} fontSize="small" />
                 <span>{truncate(evaluationMetric, 40)}</span>
               </div>
-            ) : null}
+            )}
             <div className={classes.infoBlock}>
               <SaveIcon className={classes.save} fontSize="small" />
               <span>{maxDailySubmissions}</span>
