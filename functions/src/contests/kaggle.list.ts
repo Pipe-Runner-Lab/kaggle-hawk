@@ -1,7 +1,11 @@
 import { kaggleApi } from "../utils/kaggle.api";
 import { kaggleUpdate } from "../utils/kaggle.update";
 import { kaggleUtils } from "../utils/kaggle.postprocess";
-import { KaggleDiffItem, KaggleLeaderboardItem } from "../types/basic";
+import {
+  KaggleContestItem,
+  KaggleDiffItem,
+  KaggleLeaderboardItem,
+} from "../types/basic";
 import { MAX_ITEMS, push } from "../utils/queue";
 // import moment from "moment";
 
@@ -12,38 +16,27 @@ async function refreshContestList(): Promise<void> {
      */
     const kaggleList: any = await kaggleApi.getCompetitionList();
     const postProcessedContestList = kaggleUtils.remap(kaggleList);
-    // generate inverted map to help in diff
-    let invertedMap: {
-      [id: number]: {
-        teamCount: number;
-      };
-    } = {};
+    // generate contest map
+    let contestMap: Record<number, KaggleContestItem> = {};
     postProcessedContestList.forEach((item, idx) => {
-      invertedMap = {
-        ...invertedMap,
-        [item.id]: {
-          teamCount: item.teamCount,
-        },
+      contestMap = {
+        ...contestMap,
+        [item.id]: item,
       };
     });
 
     /**
      * Fetch leaderboard data
      */
-    const filteredList = postProcessedContestList.filter(
-      (contest) => contest.category !== "Getting Started"
-    );
-    const contestKeys = filteredList.map((contest) => contest.id);
-    const promiseList = filteredList.map((contest) => {
+    const contestKeys = postProcessedContestList.map((contest) => contest.id);
+    const promiseList = postProcessedContestList.map((contest) => {
       return kaggleApi.getContestLeaderboard(contest.ref);
     });
     const resultList = await Promise.all([...promiseList]);
-    let postProcessedLeaderboardMap: {
-      [id: string]: KaggleLeaderboardItem[];
-    } = {};
+    let leaderboardMap: Record<string, KaggleLeaderboardItem[]> = {};
     contestKeys.forEach((id: number, idx: number) => {
-      postProcessedLeaderboardMap = {
-        ...postProcessedLeaderboardMap,
+      leaderboardMap = {
+        ...leaderboardMap,
         [`${id}`]: resultList[idx],
       };
     });
@@ -52,10 +45,10 @@ async function refreshContestList(): Promise<void> {
      * Generate diff of teamCount and score
      */
     const currentDiffMap = await kaggleUpdate.getDiffsMap();
-    let diffMap: { [key: string]: KaggleDiffItem } = {};
+    let diffMap: Record<string, KaggleDiffItem> = {};
     contestKeys.forEach((id: number, idx: number) => {
       // find diff of contest.idx only if leaderboard.idx exists
-      if (postProcessedLeaderboardMap[id]?.length > 0) {
+      if (leaderboardMap[id]?.length > 0) {
         const currentDiff: KaggleDiffItem | undefined = currentDiffMap[id];
         diffMap = {
           ...diffMap,
@@ -64,7 +57,7 @@ async function refreshContestList(): Promise<void> {
             score: currentDiff
               ? push<{ value: number; timestamp: number }>(
                   {
-                    value: postProcessedLeaderboardMap[id][0].score,
+                    value: leaderboardMap[id][0].score,
                     timestamp: Date.now(),
                   },
                   currentDiff.score,
@@ -72,14 +65,14 @@ async function refreshContestList(): Promise<void> {
                 )
               : [
                   {
-                    value: postProcessedLeaderboardMap[id][0].score,
+                    value: leaderboardMap[id][0].score,
                     timestamp: Date.now(),
                   },
                 ],
             teamCount: currentDiff
               ? push<{ value: number; timestamp: number }>(
                   {
-                    value: invertedMap[id].teamCount,
+                    value: contestMap[id].teamCount,
                     timestamp: Date.now(),
                   },
                   currentDiff.teamCount,
@@ -87,7 +80,7 @@ async function refreshContestList(): Promise<void> {
                 )
               : [
                   {
-                    value: invertedMap[id].teamCount,
+                    value: contestMap[id].teamCount,
                     timestamp: Date.now(),
                   },
                 ],
@@ -98,8 +91,8 @@ async function refreshContestList(): Promise<void> {
 
     // Updating firestore
     await Promise.all([
-      kaggleUpdate.updateContestList(postProcessedContestList),
-      kaggleUpdate.updateLeaderboardList(postProcessedLeaderboardMap),
+      kaggleUpdate.updateContestList(contestMap),
+      kaggleUpdate.updateLeaderboardList(leaderboardMap),
       kaggleUpdate.updateDiff(diffMap),
     ]);
     return;

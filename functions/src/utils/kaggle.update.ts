@@ -5,19 +5,16 @@ import {
   KaggleLeaderboardItem,
 } from "../types/basic";
 
-async function updateContestList(list: KaggleContestItem[]): Promise<any> {
-  if (!list) {
-    console.warn("Empty kaggle list");
-    return null;
-  }
-
+async function updateContestList(
+  contestMap: Record<string, KaggleContestItem>
+): Promise<any> {
   try {
     const db = admin.firestore();
     const ref = db.collection("kaggle").doc("contests");
     const snapshot = await ref.get();
     if (snapshot.exists) {
       return ref.update({
-        list,
+        map: contestMap,
       });
     }
     console.error("[contests] document missing in Kaggle");
@@ -28,16 +25,16 @@ async function updateContestList(list: KaggleContestItem[]): Promise<any> {
   }
 }
 
-async function updateLeaderboardList(contests: {
-  [key: string]: KaggleLeaderboardItem[];
-}): Promise<any> {
+async function updateLeaderboardList(
+  leaderboardMap: Record<string, KaggleLeaderboardItem[]>
+): Promise<any> {
   try {
     const db = admin.firestore();
     const ref = db.collection("kaggle").doc("leaderboards");
     const snapshot = await ref.get();
     if (snapshot.exists) {
       return ref.update({
-        contests,
+        map: leaderboardMap,
       });
     }
     console.error("[leaderboards] document missing in Kaggle");
@@ -48,15 +45,13 @@ async function updateLeaderboardList(contests: {
   }
 }
 
-async function getDiffsMap(): Promise<{
-  [key: string]: KaggleDiffItem;
-} | void> {
+async function getDiffsMap(): Promise<Record<string, KaggleDiffItem> | void> {
   try {
     const db = admin.firestore();
     const ref = db.collection("kaggle").doc("diffs");
     const snapshot = await ref.get();
     if (snapshot.exists) {
-      return snapshot.data().contests;
+      return snapshot.data().map;
     }
     console.error("[diffs] document missing in Kaggle");
     return;
@@ -66,16 +61,16 @@ async function getDiffsMap(): Promise<{
   }
 }
 
-async function updateDiff(diff: {
-  [id: string]: KaggleDiffItem;
-}): Promise<any> {
+async function updateDiff(
+  diffMap: Record<string, KaggleDiffItem>
+): Promise<any> {
   try {
     const db = admin.firestore();
     const ref = db.collection("kaggle").doc("diffs");
     const snapshot = await ref.get();
     if (snapshot.exists) {
       return ref.update({
-        contests: diff,
+        map: diffMap,
       });
     }
     console.error("[diffs] document missing in Kaggle");
