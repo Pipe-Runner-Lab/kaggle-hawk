@@ -16,25 +16,26 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function WatchList() {
-  const { kaggleList, kaggleLeaderboard, toggleWatchListId, watchListIds } = useContext(
+  const classes = useStyles();
+  const { kaggleMap, kaggleLeaderboardMap, toggleWatchListId, watchListIds } = useContext(
     DataContext
   );
 
-  const classes = useStyles();
+  const filteredList = Object.values(kaggleMap)
 
-  return kaggleList.length === 0 ? (
+  return filteredList.length === 0 ? (
     <Loading />
   ) : watchListIds.length === 0 ? (
     <EmptyWatchList />
   ) : (
     <Scrollbars autoHide>
       <div className={classes.root}>
-        {kaggleList
+        {filteredList
           .filter((item) => watchListIds.indexOf(item.id) !== -1)
           .map((item, idx) => {
             return (
               <WatchCard
-                leaderboard={kaggleLeaderboard[item.id]}
+                leaderboard={kaggleLeaderboardMap[item.id]}
                 key={idx}
                 {...item}
                 toggleWatchListId={toggleWatchListId}

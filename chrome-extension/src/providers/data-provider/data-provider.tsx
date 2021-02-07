@@ -4,54 +4,43 @@ import DataContext from "../../contexts/data-context";
 import { SortKeys } from "../../types/sort";
 import { parseDates } from "../../utils/dates";
 import {
-  RawContestList,
-  RawLeaderboardObject,
-  SanitizedList,
+  ContestMapType,
+  LeaderboardMapType,
+  LeaderboardType,
+  SanitizedContestType,
+  SanitizedContestMapType,
 } from "../../types/kaggle";
 import { sortByTimeLeft, sortByTimeLeftOp } from "../../utils/sort";
 import { useStore, useSyncStore } from "../../hooks/store";
+import { StoreKey } from "../../../common/type";
 
-function sanitizeKaggleList(
-  data: RawContestList[],
-  sortType: SortKeys,
+function sanitizedContestMapGenerator(
+  data: ContestMapType,
   watchListIds: number[]
-): SanitizedList[] {
-  const cleanData = data.map((item) => {
+): SanitizedContestMapType {
+  let sanitizedContestMap: SanitizedContestMapType;
+  const contestKeys = Object.keys(data);
+  contestKeys.forEach((id, idx) => {
+    const contest = data[id];
     const { finishedFraction } = parseDates(
-      item.enabledDate,
-      item.mergerDeadline,
-      item.deadline
+      contest.enabledDate,
+      contest.mergerDeadline,
+      contest.deadline
     );
+    const { ref, ...rest } = contest;
 
-    return {
-      category: item.category,
-      deadline: item.deadline,
-      description: item.description,
-      evaluationMetric: item.evaluationMetric,
-      id: item.id,
-      maxDailySubmissions: item.maxDailySubmissions,
-      maxTeamSize: item.maxTeamSize,
-      reference: item.ref,
-      reward: item.reward,
-      tags: item.tags,
-      teamCount: item.teamCount,
-      title: item.title,
-      url: item.url,
-      enabledDate: item.enabledDate,
-      mergerDeadline: item.mergerDeadline,
-      finishedFraction,
-      isWatched: watchListIds.indexOf(item.id) !== -1,
+    sanitizedContestMap = {
+      ...sanitizedContestMap,
+      [id]: {
+        ...rest,
+        reference: ref,
+        finishedFraction,
+        isWatched: watchListIds.indexOf(contest.id) !== -1,
+      },
     };
   });
 
-  switch (sortType) {
-    case SortKeys.TIME_LEFT:
-      return cleanData.sort(sortByTimeLeft);
-    case SortKeys.TIME_LEFT_OP:
-      return cleanData.sort(sortByTimeLeftOp);
-    default:
-      return cleanData;
-  }
+  return sanitizedContestMap;
 }
 
 type DataProviderProps = {
@@ -59,24 +48,25 @@ type DataProviderProps = {
 };
 
 export default function DataProvider({ children }: DataProviderProps) {
-  const [kaggleList, setKaggleList, refreshKaggleList] = useStore<
-    RawContestList[]
-  >([], "KAGGLE_LIST");
+  const [kaggleMap, setKaggleMap, refreshKaggleMap] = useStore<ContestMapType>(
+    {},
+    StoreKey.KAGGLE_CONTEST
+  );
 
   const [
-    kaggleLeaderboard,
-    setKaggleLeaderboard,
-    refreshKaggleLeaderboard,
-  ] = useStore<RawLeaderboardObject>({}, "KAGGLE_LEADERBOARD");
+    kaggleLeaderboardMap,
+    setKaggleLeaderboardMap,
+    refreshKaggleLeaderboardMap,
+  ] = useStore<LeaderboardMapType>({}, StoreKey.KAGGLE_LEADERBOARD);
 
   const [watchListIds, setWatchListIds] = useSyncStore<number[]>(
     [],
-    "WATCH_LIST_IDS"
+    StoreKey.WATCH_LIST_IDS
   );
 
   const [sortKey, setSortKey] = useSyncStore<SortKeys>(
     SortKeys.NONE,
-    "SORT_KEY"
+    StoreKey.SORT_KEY
   );
 
   function updateSortKey(key: SortKeys) {
@@ -92,18 +82,22 @@ export default function DataProvider({ children }: DataProviderProps) {
   }
 
   browser.storage.onChanged.addListener(() => {
-    refreshKaggleList();
-    // refreshKaggleLeaderboard();
+    // refreshKaggleMap();
+    // refreshKaggleLeaderboardMap();
   });
 
   // TODO: Sync with sync store
-  const sanitizedList = sanitizeKaggleList(kaggleList, sortKey, watchListIds);
+  const sanitizedContestMap = sanitizedContestMapGenerator(
+    kaggleMap,
+    watchListIds
+  );
 
   return (
     <DataContext.Provider
       value={{
-        kaggleList: sanitizedList,
-        kaggleLeaderboard,
+        sortKey,
+        kaggleMap: sanitizedContestMap,
+        kaggleLeaderboardMap,
         watchListIds,
         toggleWatchListId,
         updateSortKey,

@@ -1,8 +1,8 @@
-import { SanitizedList } from "../types/kaggle";
+import { SanitizedContestType } from "../types/kaggle";
 
 export function sortByTimeLeft(
-  itemL: SanitizedList,
-  itemR: SanitizedList
+  itemL: SanitizedContestType,
+  itemR: SanitizedContestType
 ): number {
   if (itemL.finishedFraction < itemR.finishedFraction) {
     return -1;
@@ -14,8 +14,8 @@ export function sortByTimeLeft(
 }
 
 export function sortByTimeLeftOp(
-  itemL: SanitizedList,
-  itemR: SanitizedList
+  itemL: SanitizedContestType,
+  itemR: SanitizedContestType
 ): number {
   if (itemL.finishedFraction < itemR.finishedFraction) {
     return 1;

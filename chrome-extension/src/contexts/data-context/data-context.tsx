@@ -1,16 +1,22 @@
 import { createContext } from "react";
 import { SortKeys } from "../../types/sort";
-import { RawLeaderboardObject, SanitizedList } from "../../types/kaggle";
+import {
+  ContestMapType,
+  LeaderboardMapType,
+  SanitizedContestMapType,
+} from "../../types/kaggle";
 
 const dataContext = createContext<{
-  kaggleList: SanitizedList[];
-  kaggleLeaderboard: RawLeaderboardObject;
+  sortKey: SortKeys | null;
+  kaggleMap: SanitizedContestMapType;
+  kaggleLeaderboardMap: LeaderboardMapType;
   watchListIds: number[];
   toggleWatchListId: (id: number) => void;
   updateSortKey: (key: SortKeys) => void;
 }>({
-  kaggleList: [],
-  kaggleLeaderboard: {},
+  sortKey: null,
+  kaggleMap: {},
+  kaggleLeaderboardMap: {},
   watchListIds: [],
   toggleWatchListId: (id: number) => {},
   updateSortKey: (key: SortKeys) => {},

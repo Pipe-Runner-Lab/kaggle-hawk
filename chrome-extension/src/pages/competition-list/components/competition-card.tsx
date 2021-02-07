@@ -14,7 +14,7 @@ import SaveIcon from "@material-ui/icons/Save";
 import moment from "moment";
 import Spacer from "../../../components/spacer";
 import { IconButton } from "@material-ui/core";
-import { LeaderboardItem, SanitizedList } from "../../../types/kaggle";
+import { LeaderboardType, SanitizedContestType } from "../../../types/kaggle";
 import { truncate } from "../../../utils/text";
 
 const useStyles = makeStyles((theme) => ({
@@ -122,7 +122,7 @@ const useStyles = makeStyles((theme) => ({
 
 type CompetitionCardProps = {
   toggleWatchListId: (id: number) => void;
-  leaderboard: LeaderboardItem[];
+  leaderboard: LeaderboardType[];
 };
 
 export default function CompetitionCard({
@@ -145,7 +145,8 @@ export default function CompetitionCard({
   isWatched,
   toggleWatchListId,
   leaderboard,
-}: SanitizedList & CompetitionCardProps) {
+}: SanitizedContestType & CompetitionCardProps) {
+  console.info(reference);
   const classes = useStyles();
 
   function renderReward(reward: string) {
@@ -169,8 +170,6 @@ export default function CompetitionCard({
         return <div className={classes.money}>{reward}</div>;
     }
   }
-
-  console.log(title, leaderboard);
 
   return (
     <Paper className={classes.root}>

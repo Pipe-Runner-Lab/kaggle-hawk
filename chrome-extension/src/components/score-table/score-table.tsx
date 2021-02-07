@@ -2,7 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { FullscreenExitTwoTone } from "@material-ui/icons";
 import clx from "classnames";
-import { LeaderboardItem } from "../../types/kaggle";
+import { LeaderboardMapType, LeaderboardType } from "../../types/kaggle";
 import { truncate } from "../../utils/text";
 
 const useStyles = makeStyles((theme) => ({
@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 type ScoreTableProps = {
-  data: LeaderboardItem[];
+  data: LeaderboardType[];
   limit: number;
 };
 
@@ -53,7 +53,7 @@ export default function ScoreTable({ data, limit }: ScoreTableProps) {
           </tr>
         </thead>
         <tbody>
-          {data.splice(0, limit).map((item: LeaderboardItem, idx: number) => (
+          {data.splice(0, limit).map((item: LeaderboardType, idx: number) => (
             <tr key={idx}>
               <td className={clx(classes.cell, classes.rankColor)}>
                 {idx + 1}

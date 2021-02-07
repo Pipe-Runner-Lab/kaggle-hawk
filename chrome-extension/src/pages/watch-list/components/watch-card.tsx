@@ -15,7 +15,7 @@ import SaveIcon from "@material-ui/icons/Save";
 import moment from "moment";
 import Spacer from "../../../components/spacer";
 import { Divider, IconButton } from "@material-ui/core";
-import { LeaderboardItem, SanitizedList } from "../../../types/kaggle";
+import { LeaderboardType, SanitizedContestType } from "../../../types/kaggle";
 import { truncate } from "../../../utils/text";
 import ScoreTable from "../../../components/score-table";
 
@@ -121,7 +121,7 @@ const useStyles = makeStyles((theme) => ({
 
 type WatchCardProps = {
   toggleWatchListId: (id: number) => void;
-  leaderboard: LeaderboardItem[];
+  leaderboard: LeaderboardType[];
 };
 
 export default function WatchCard({
@@ -142,7 +142,7 @@ export default function WatchCard({
   isWatched,
   toggleWatchListId,
   leaderboard,
-}: Partial<SanitizedList> & WatchCardProps) {
+}: Partial<SanitizedContestType> & WatchCardProps) {
   const classes = useStyles();
 
   function renderReward(reward: string) {

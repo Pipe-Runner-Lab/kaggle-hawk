@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { retrieve, syncRetrieve, syncSave } from "../utils/store";
+import { retrieve, syncRetrieve, syncSave } from "../../common/store.utils";
 
 export function useSyncStore<T>(initialValue: T, storeKey: string): any[] {
   const [state, setState] = useState<T>(initialValue);
