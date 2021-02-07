@@ -11,7 +11,6 @@ import SchoolOutlinedIcon from "@material-ui/icons/SchoolOutlined";
 import EqualizerIcon from "@material-ui/icons/Equalizer";
 import BubbleChartIcon from "@material-ui/icons/BubbleChart";
 import SaveIcon from "@material-ui/icons/Save";
-import moment from "moment";
 import Spacer from "../../../components/spacer";
 import { IconButton } from "@material-ui/core";
 import { LeaderboardType, SanitizedContestType } from "../../../types/kaggle";
@@ -20,7 +19,6 @@ import { truncate } from "../../../utils/text";
 const useStyles = makeStyles((theme) => ({
   root: {
     color: theme.palette.text.primary,
-    flex: 1,
   },
   titleContainer: {
     display: "flex",
@@ -146,7 +144,6 @@ export default function CompetitionCard({
   toggleWatchListId,
   leaderboard,
 }: SanitizedContestType & CompetitionCardProps) {
-  console.info(reference);
   const classes = useStyles();
 
   function renderReward(reward: string) {

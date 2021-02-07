@@ -17,11 +17,14 @@ const useStyles = makeStyles((theme) => ({
 
 export default function WatchList() {
   const classes = useStyles();
-  const { kaggleMap, kaggleLeaderboardMap, toggleWatchListId, watchListIds } = useContext(
-    DataContext
-  );
+  const {
+    kaggleMap,
+    kaggleLeaderboardMap,
+    toggleWatchListId,
+    watchListIds,
+  } = useContext(DataContext);
 
-  const filteredList = Object.values(kaggleMap)
+  const filteredList = Object.values(kaggleMap);
 
   return filteredList.length === 0 ? (
     <Loading />

@@ -6,11 +6,16 @@ export namespace Kaggle {
   export async function refreshKaggleList() {
     const kaggleList = await FireStore.getKaggleCompetitions();
     const kaggleLeaderboard = await FireStore.getKaggleLeaderboards();
+    const kaggleDiffs = await FireStore.getKaggleDifs();
+
     await save({
       [StoreKey.KAGGLE_CONTEST]: kaggleList,
     });
     await save({
       [StoreKey.KAGGLE_LEADERBOARD]: kaggleLeaderboard,
+    });
+    await save({
+      [StoreKey.KAGGLE_DIFFS]: kaggleDiffs,
     });
   }
 }

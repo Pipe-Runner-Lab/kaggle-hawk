@@ -22,7 +22,6 @@ import ScoreTable from "../../../components/score-table";
 const useStyles = makeStyles((theme) => ({
   root: {
     color: theme.palette.text.primary,
-    flex: 1,
   },
   titleContainer: {
     display: "flex",
@@ -166,8 +165,6 @@ export default function WatchCard({
         return <div className={classes.money}>{reward}</div>;
     }
   }
-
-  console.log(title, leaderboard);
 
   return (
     <Paper className={classes.root}>

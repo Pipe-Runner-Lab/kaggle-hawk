@@ -6,6 +6,7 @@ import { AlarmName, REFRESH_RATE } from "./types";
 browser.runtime.onInstalled.addListener(() => {
   FireBase.initializeApp();
   // browser.storage.local.clear();
+  // browser.storage.sync.clear();
   Kaggle.refreshKaggleList().then(() => {
     console.info("kaggle list refreshed...");
   });

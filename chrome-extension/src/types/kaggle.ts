@@ -56,3 +56,17 @@ export type LeaderboardType = {
 };
 
 export type LeaderboardMapType = Record<string, LeaderboardType[]>;
+
+export type KaggleDiffsType = {
+  score: {
+    timestamp: string;
+    value: string;
+  }[];
+  teamCount: {
+    timestamp: string;
+    value: string;
+  }[];
+  updateCycle: number;
+};
+
+export type KaggleDiffsMapType = Record<string, KaggleDiffsType>;

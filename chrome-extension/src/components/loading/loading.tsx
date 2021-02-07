@@ -6,7 +6,6 @@ import LinearProgress from "@material-ui/core/LinearProgress";
 const useStyles = makeStyles((theme) => ({
   root: {
     height: "100%",
-    color: "white",
     display: "flex",
     flexDirection: "column",
   },

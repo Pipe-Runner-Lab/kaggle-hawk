@@ -57,4 +57,23 @@ export namespace FireStore {
       return {};
     }
   }
+
+  export async function getKaggleDifs() {
+    try{
+      const db = firebase.firestore();
+      const collection = db.collection("kaggle");
+      const docRef = collection.doc("diffs");
+
+      const doc = await docRef.get();
+      if (doc.exists) {
+        return doc.data().map;
+      }
+      console.error("[diffs] document not found on Kaggle collection");
+      return {};
+    }
+    catch( error ){
+      console.error(error);
+      return {}
+    }
+  }
 }

@@ -1,16 +1,13 @@
-import React, { useState, useEffect } from "react";
-import { browser } from "webextension-polyfill-ts";
+import React from "react";
 import DataContext from "../../contexts/data-context";
 import { SortKeys } from "../../types/sort";
 import { parseDates } from "../../utils/dates";
 import {
   ContestMapType,
   LeaderboardMapType,
-  LeaderboardType,
-  SanitizedContestType,
   SanitizedContestMapType,
+  KaggleDiffsMapType,
 } from "../../types/kaggle";
-import { sortByTimeLeft, sortByTimeLeftOp } from "../../utils/sort";
 import { useStore, useSyncStore } from "../../hooks/store";
 import { StoreKey } from "../../../common/type";
 
@@ -18,7 +15,7 @@ function sanitizedContestMapGenerator(
   data: ContestMapType,
   watchListIds: number[]
 ): SanitizedContestMapType {
-  let sanitizedContestMap: SanitizedContestMapType;
+  let sanitizedContestMap: SanitizedContestMapType = {};
   const contestKeys = Object.keys(data);
   contestKeys.forEach((id, idx) => {
     const contest = data[id];
@@ -59,6 +56,12 @@ export default function DataProvider({ children }: DataProviderProps) {
     refreshKaggleLeaderboardMap,
   ] = useStore<LeaderboardMapType>({}, StoreKey.KAGGLE_LEADERBOARD);
 
+  const [
+    kaggleDiffsMap,
+    setKaggleDiffsMap,
+    refreshKaggleDiffsMap,
+  ] = useStore<KaggleDiffsMapType>({}, StoreKey.KAGGLE_DIFFS);
+
   const [watchListIds, setWatchListIds] = useSyncStore<number[]>(
     [],
     StoreKey.WATCH_LIST_IDS
@@ -81,12 +84,12 @@ export default function DataProvider({ children }: DataProviderProps) {
     }
   }
 
-  browser.storage.onChanged.addListener(() => {
-    // refreshKaggleMap();
-    // refreshKaggleLeaderboardMap();
-  });
-
   // TODO: Sync with sync store
+  // browser.storage.onChanged.addListener(() => {
+  // refreshKaggleMap();
+  // refreshKaggleLeaderboardMap();
+  // });
+
   const sanitizedContestMap = sanitizedContestMapGenerator(
     kaggleMap,
     watchListIds
@@ -98,6 +101,7 @@ export default function DataProvider({ children }: DataProviderProps) {
         sortKey,
         kaggleMap: sanitizedContestMap,
         kaggleLeaderboardMap,
+        kaggleDiffsMap,
         watchListIds,
         toggleWatchListId,
         updateSortKey,
