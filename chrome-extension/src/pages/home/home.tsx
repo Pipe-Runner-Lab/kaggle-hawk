@@ -11,6 +11,7 @@ import { Button, IconButton, Paper } from "@material-ui/core";
 import { Billboard } from "./components/billboard";
 import Ticker from "react-ticker";
 import NewsTicker from "./components/news-ticker";
+import HomeScreenImage from "../../assets/home-screen.png";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,10 +25,11 @@ const useStyles = makeStyles((theme) => ({
     "& > * + *": {
       margin: theme.spacing(2, 0, 0, 0),
     },
+    display: "flex",
+    flexDirection: "column",
   },
   homeContent: {
     color: theme.palette.text.primary,
-    flex: 1,
     padding: theme.spacing(2),
     "& > * + *": {
       margin: theme.spacing(2, 0, 0, 0),
@@ -78,6 +80,21 @@ const useStyles = makeStyles((theme) => ({
   tickerContainer: {
     margin: theme.spacing(2, 0, 0, 0),
   },
+  secondaryInfoContainer: {
+    display: "flex",
+    flex: 1,
+  },
+  imageContainer: {
+    flex: 1,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "flex-end",
+    padding: theme.spacing(0, 3, 0, 0),
+  },
+  image: {
+    width: "120px",
+    height: "auto",
+  },
 }));
 
 export default function Home() {
@@ -127,15 +144,20 @@ export default function Home() {
             </Ticker>
           </div>
         </Paper>
-        <div className={classes.buttonContainer}>
-          <Button
-            variant="outlined"
-            size="small"
-            color="primary"
-            startIcon={<MemoryIcon fontSize="small" />}
-          >
-            Kaggle
-          </Button>
+        <div className={classes.secondaryInfoContainer}>
+          <div className={classes.buttonContainer}>
+            <Button
+              variant="outlined"
+              size="small"
+              color="primary"
+              startIcon={<MemoryIcon fontSize="small" />}
+            >
+              Kaggle
+            </Button>
+          </div>
+          <div className={classes.imageContainer}>
+            <img className={classes.image} src={HomeScreenImage}></img>
+          </div>
         </div>
       </div>
       <div className={classes.extraContainer}>
