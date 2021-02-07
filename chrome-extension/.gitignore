@@ -1,1 +1,6 @@
 node_modules/
+
+# Ignore bundle, compressed images and licence
+dist/**/*.js
+dist/*.png
+dist/*.txt
