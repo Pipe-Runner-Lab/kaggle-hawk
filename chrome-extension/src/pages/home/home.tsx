@@ -6,7 +6,7 @@ import PeopleAltIcon from "@material-ui/icons/PeopleAlt";
 import TrendingUpIcon from "@material-ui/icons/TrendingUp";
 import ListAltIcon from "@material-ui/icons/ListAlt";
 import DataContext from "../../contexts/data-context";
-import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive';
+import NotificationsActiveIcon from "@material-ui/icons/NotificationsActive";
 import { IconButton, Paper } from "@material-ui/core";
 import { Billboard } from "./components/billboard";
 import Ticker from "react-ticker";
@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     backgroundColor: "#333",
     justifyContent: "flex-end",
-    height: '42px',
+    height: "42px",
     padding: theme.spacing(1),
     "& > * + *": {
       margin: theme.spacing(0, 0, 0, 1),
@@ -74,7 +74,7 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(0, 2, 0, 0),
   },
   watch: {
-    color: "#ff80ab",
+    color: "#f44336",
     margin: theme.spacing(0, 2, 0, 0),
   },
   tickerContainer: {
@@ -93,7 +93,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    width: '170px'
+    width: "172px",
   },
   image: {
     width: "130px",
@@ -123,6 +123,7 @@ export default function Home() {
               icon={
                 <ListAltIcon className={classes.contest} fontSize="small" />
               }
+              color="#ffecb3"
             />
             <Billboard
               title={"Watched competitions"}
@@ -130,6 +131,7 @@ export default function Home() {
               icon={
                 <TrendingUpIcon className={classes.watch} fontSize="small" />
               }
+              color="#ffcdd2"
             />
           </div>
           <div className={classes.PrimaryInfoWrapper}>
@@ -139,6 +141,7 @@ export default function Home() {
               icon={
                 <PeopleAltIcon className={classes.people} fontSize="small" />
               }
+              color="#b2ebf2"
             />
             <Billboard />
           </div>
@@ -155,8 +158,12 @@ export default function Home() {
                 title={"New notifications"}
                 value={0}
                 icon={
-                  <NotificationsActiveIcon className={classes.notification} fontSize="small" />
+                  <NotificationsActiveIcon
+                    className={classes.notification}
+                    fontSize="small"
+                  />
                 }
+                color="#c8e6c9"
               />
             </Paper>
           </div>

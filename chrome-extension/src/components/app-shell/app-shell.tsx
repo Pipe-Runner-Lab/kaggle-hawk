@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   contentContainer: {
-    backgroundColor: "#121212",
+    backgroundColor: "#191919",
     flex: 1,
     overflow: "hidden",
   },

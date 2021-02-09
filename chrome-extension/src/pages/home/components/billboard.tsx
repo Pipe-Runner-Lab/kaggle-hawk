@@ -1,6 +1,8 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Image from "../../../assets/kaggle.png";
+import { numberShortner } from "../../../utils/text";
+import clx from "classnames";
 
 const useStyles = makeStyles((theme) => ({
   billboard: {
@@ -18,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
     padding: theme.spacing(4, 2),
-    backgroundColor: "#757575",
+    backgroundColor: "#2e2e2e",
   },
   billboardTitle: {
     display: "flex",
@@ -26,17 +28,21 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(1, 2),
     alignItems: "center",
     justifyContent: "flex-start",
-    backgroundColor: "#616161",
+    backgroundColor: "#404040",
   },
   imageWrapper: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     flex: 1,
+    backgroundColor: "#2e2e2e",
   },
   image: {
     height: "60px",
     width: "auto",
+  },
+  inActive: {
+    filter: "grayscale(100%)",
   },
 }));
 
@@ -44,16 +50,21 @@ type BillboardProps = {
   title?: string;
   value?: string | number;
   icon?: JSX.Element;
+  color?: string;
 };
 
-export function Billboard({ title, value, icon }: BillboardProps) {
+export function Billboard({ title, value, icon, color }: BillboardProps) {
   const classes = useStyles();
 
   return (
-    <div className={classes.billboard}>
+    <div
+      className={clx(classes.billboard, { [classes.inActive]: value === 0 })}
+    >
       {title ? (
         <>
-          <div className={classes.billboardContent}>{value}</div>
+          <div className={classes.billboardContent} style={{ color }}>
+            {numberShortner(value)}
+          </div>
           <div className={classes.billboardTitle}>
             {icon}
             <span>{title}</span>
