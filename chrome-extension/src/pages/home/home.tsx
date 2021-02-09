@@ -6,8 +6,8 @@ import PeopleAltIcon from "@material-ui/icons/PeopleAlt";
 import TrendingUpIcon from "@material-ui/icons/TrendingUp";
 import ListAltIcon from "@material-ui/icons/ListAlt";
 import DataContext from "../../contexts/data-context";
-import MemoryIcon from "@material-ui/icons/Memory";
-import { Button, IconButton, Paper } from "@material-ui/core";
+import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive';
+import { IconButton, Paper } from "@material-ui/core";
 import { Billboard } from "./components/billboard";
 import Ticker from "react-ticker";
 import NewsTicker from "./components/news-ticker";
@@ -35,16 +35,12 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(2, 0, 0, 0),
     },
   },
-  buttonContainer: {
-    "& > * + *": {
-      margin: theme.spacing(0, 0, 0, 1),
-    },
-  },
-  extraContainer: {
+  bottomBar: {
     display: "flex",
     alignItems: "center",
     backgroundColor: "#333",
     justifyContent: "flex-end",
+    height: '42px',
     padding: theme.spacing(1),
     "& > * + *": {
       margin: theme.spacing(0, 0, 0, 1),
@@ -73,8 +69,12 @@ const useStyles = makeStyles((theme) => ({
     color: "#ffd54f",
     margin: theme.spacing(0, 2, 0, 0),
   },
+  notification: {
+    color: "#69f0ae",
+    margin: theme.spacing(0, 2, 0, 0),
+  },
   watch: {
-    color: "#f06292",
+    color: "#ff80ab",
     margin: theme.spacing(0, 2, 0, 0),
   },
   tickerContainer: {
@@ -82,17 +82,21 @@ const useStyles = makeStyles((theme) => ({
   },
   secondaryInfoContainer: {
     display: "flex",
+    "& > * + *": {
+      margin: theme.spacing(0, 0, 0, 3),
+    },
+  },
+  notificationContainer: {
     flex: 1,
   },
   imageContainer: {
-    flex: 1,
     display: "flex",
     alignItems: "center",
-    justifyContent: "flex-end",
-    padding: theme.spacing(0, 3, 0, 0),
+    justifyContent: "center",
+    width: '170px'
   },
   image: {
-    width: "120px",
+    width: "130px",
     height: "auto",
   },
 }));
@@ -145,22 +149,23 @@ export default function Home() {
           </div>
         </Paper>
         <div className={classes.secondaryInfoContainer}>
-          <div className={classes.buttonContainer}>
-            <Button
-              variant="outlined"
-              size="small"
-              color="primary"
-              startIcon={<MemoryIcon fontSize="small" />}
-            >
-              Kaggle
-            </Button>
+          <div className={classes.notificationContainer}>
+            <Paper className={classes.homeContent}>
+              <Billboard
+                title={"New notifications"}
+                value={0}
+                icon={
+                  <NotificationsActiveIcon className={classes.notification} fontSize="small" />
+                }
+              />
+            </Paper>
           </div>
           <div className={classes.imageContainer}>
             <img className={classes.image} src={HomeScreenImage}></img>
           </div>
         </div>
       </div>
-      <div className={classes.extraContainer}>
+      <div className={classes.bottomBar}>
         <IconButton className={classes.iconButton}>
           <InfoIcon fontSize="small" className={classes.about} />
         </IconButton>
