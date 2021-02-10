@@ -12,7 +12,15 @@ import DataContext from "../../../contexts/data-context";
 export default function NewsTicker() {
   const { kaggleMap, kaggleDiffsMap, watchListIds } = useContext(DataContext);
 
-  const news = Object.keys(kaggleDiffsMap).map((idx) => {
+  // if watchList has ids, only use them for news
+  const diffKeys = !!watchListIds.length
+    ? Object.keys(kaggleDiffsMap).filter((item) =>
+        watchListIds.includes(parseInt(item, 10))
+      )
+    : Object.keys(kaggleDiffsMap);
+
+  let news: { type: NewsType; statement: string }[] = [];
+  diffKeys.map((idx) => {
     const item = kaggleDiffsMap[idx];
     const title = kaggleMap[idx].title;
 
@@ -29,10 +37,10 @@ export default function NewsTicker() {
       } else {
         type = NewsType.EQU;
       }
-      return {
+      news.push({
         type,
         statement: `${title} saw a change of ${diff} score in ${item.updateCycle} hours`,
-      };
+      });
     }
     if (item.teamCount.length > 1) {
       const l = parseFloat(item.teamCount[item.score.length - 1].value);
@@ -46,18 +54,18 @@ export default function NewsTicker() {
       } else {
         type = NewsType.EQU;
       }
-      return {
+      news.push({
         type,
         statement: `${title} saw a change of ${
           diff * kaggleMap[idx].maxTeamSize
         } people in ${item.updateCycle} hours`,
-      };
+      });
     }
   });
 
   return (
     <div style={{ display: "flex", whiteSpace: "nowrap" }}>
-      {news.length !== 0 ? (
+      {!!news.length ? (
         news.map((item, idx) => {
           let arrow: JSX.Element;
           if (item.type === NewsType.INC) {
