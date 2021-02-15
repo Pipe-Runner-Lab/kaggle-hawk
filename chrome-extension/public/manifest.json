@@ -4,10 +4,16 @@
   "description": "A utility for data scientists",
   "manifest_version": 2,
   "content_security_policy": "script-src 'self' 'unsafe-eval' https://www.gstatic.com/ https://*.firebaseio.com https://www.googleapis.com https://www.googletagmanager.com; object-src 'self'",
-  "permissions": ["storage", "identity", "alarms"],
+  "permissions": [
+    "storage",
+    "identity",
+    "alarms"
+  ],
   "background": {
-    "page": "./scripts/index.html",
-    "persistent": false
+    "persistent": false,
+    "scripts": [
+      "./scripts/bundle.bg.js"
+    ]
   },
   "browser_action": {
     "default_popup": "./index.html",

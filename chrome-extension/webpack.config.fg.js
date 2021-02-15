@@ -1,6 +1,6 @@
 const path = require("path");
-// const HtmlWebpackPlugin = require("html-webpack-plugin");
-// const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const ExtensionReloader = require("webpack-extension-reloader");
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   entry: "./src/index.tsx",
@@ -17,7 +17,7 @@ module.exports = {
           {
             loader: "ts-loader",
             options: {
-              configFile: "tsconfig.fg.json",
+              configFile: "tsconfig.json",
             },
           },
         ],
@@ -40,11 +40,14 @@ module.exports = {
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
   },
-  // plugins: [
-  //   new CleanWebpackPlugin(),
-  //   new HtmlWebpackPlugin({
-  //     title: "Kaggle Hawk",
-  //     template: path.resolve(__dirname, "public","index.html"),
-  //   }),
-  // ],
+  plugins: [
+    new CopyPlugin({
+      patterns: [
+        { from: "./icons", to: "./icons" },
+        { from: "./public/index.html" },
+        { from: "./public/main.css" },
+        { from: "./public/manifest.json" },
+      ],
+    }),
+  ],
 };

@@ -1,4 +1,5 @@
 const path = require("path");
+const ExtensionReloader = require("webpack-extension-reloader");
 
 module.exports = {
   entry: "./background/index.ts",
@@ -10,12 +11,12 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
+        test: /\.ts/,
         use: [
           {
             loader: "ts-loader",
             options: {
-              configFile: "tsconfig.bg.json",
+              configFile: "tsconfig.json",
             },
           },
         ],
@@ -24,6 +25,6 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: [".tsx", ".ts", ".js"],
+    extensions: [".tsx", ".ts"],
   },
 };
