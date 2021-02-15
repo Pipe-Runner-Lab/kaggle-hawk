@@ -41,11 +41,12 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev-fg": "npx webpack --watch --mode=development --config webpack.config.fg.js",
-    "dev-bg": "npx webpack --watch --mode=development --config webpack.config.bg.js",
-    "dev": "npx concurrently -n \"popup,background\" -c \"green,blue\" --kill-others \"npm run dev-fg\" \"npm run dev-bg\"",
-    "build": "npx webpack --mode=production --config webpack.config.fg.js && npx webpack --mode=production --config webpack.config.bg.js"
+    "clean": "rm -rf dist",
+    "dev:popup": "npx webpack --watch --mode=development --config webpack/popup.js",
+    "dev:background": "npx webpack --watch --mode=development --config webpack/background.js",
+    "dev": "npm run clean && npx concurrently -n \"popup,background\" -c \"green,blue\" --kill-others \"npm run dev:popup\" \"npm run dev:background\"",
+    "build": "npx webpack --mode=production --config webpack/popup.js && npx webpack --mode=production --config webpack/background.js"
   },
-  "author": "",
+  "author": "Aakash S. Mallik",
   "license": "ISC"
 }

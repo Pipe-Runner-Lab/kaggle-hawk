@@ -4,8 +4,8 @@ const ExtensionReloader = require("webpack-extension-reloader");
 module.exports = {
   entry: "./background/index.ts",
   output: {
-    filename: "bundle.bg.js",
-    path: path.resolve(__dirname, "dist", "scripts"),
+    filename: "background.js",
+    path: path.resolve(__dirname, "../dist"),
   },
   devtool: "inline-source-map",
   module: {

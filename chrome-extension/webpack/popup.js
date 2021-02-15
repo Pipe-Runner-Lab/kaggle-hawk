@@ -5,8 +5,8 @@ const CopyPlugin = require("copy-webpack-plugin");
 module.exports = {
   entry: "./src/index.tsx",
   output: {
-    filename: "bundle.js",
-    path: path.resolve(__dirname, "dist"),
+    filename: "popup.js",
+    path: path.resolve(__dirname, "../dist"),
   },
   devtool: "inline-source-map",
   module: {
