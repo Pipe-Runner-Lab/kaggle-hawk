@@ -45,29 +45,26 @@ type DataProviderProps = {
 };
 
 export default function DataProvider({ children }: DataProviderProps) {
-  const [kaggleMap, setKaggleMap, refreshKaggleMap] = useStore<ContestMapType>(
+  const { state: kaggleMap, setState: setKaggleMap } = useStore<ContestMapType>(
     {},
     StoreKey.KAGGLE_CONTEST
   );
 
-  const [
-    kaggleLeaderboardMap,
-    setKaggleLeaderboardMap,
-    refreshKaggleLeaderboardMap,
-  ] = useStore<LeaderboardMapType>({}, StoreKey.KAGGLE_LEADERBOARD);
+  const {
+    state: kaggleLeaderboardMap,
+    setState: setKaggleLeaderboardMap,
+  } = useStore<LeaderboardMapType>({}, StoreKey.KAGGLE_LEADERBOARD);
 
-  const [
-    kaggleDiffsMap,
-    setKaggleDiffsMap,
-    refreshKaggleDiffsMap,
-  ] = useStore<KaggleDiffsMapType>({}, StoreKey.KAGGLE_DIFFS);
+  const {
+    state: kaggleDiffsMap,
+    setState: setKaggleDiffsMap,
+  } = useStore<KaggleDiffsMapType>({}, StoreKey.KAGGLE_DIFFS);
 
-  const [watchListIds, setWatchListIds] = useSyncStore<number[]>(
-    [],
-    StoreKey.WATCH_LIST_IDS
-  );
+  const { state: watchListIds, setState: setWatchListIds } = useSyncStore<
+    number[]
+  >([], StoreKey.WATCH_LIST_IDS);
 
-  const [sortKey, setSortKey] = useSyncStore<SortKeys>(
+  const { state: sortKey, setState: setSortKey } = useSyncStore<SortKeys>(
     SortKeys.NONE,
     StoreKey.SORT_KEY
   );
@@ -83,12 +80,6 @@ export default function DataProvider({ children }: DataProviderProps) {
       setWatchListIds(watchListIds.filter((item: number) => item !== id));
     }
   }
-
-  // TODO: Sync with sync store
-  // browser.storage.onChanged.addListener(() => {
-  // refreshKaggleMap();
-  // refreshKaggleLeaderboardMap();
-  // });
 
   const sanitizedContestMap = sanitizedContestMapGenerator(
     kaggleMap,

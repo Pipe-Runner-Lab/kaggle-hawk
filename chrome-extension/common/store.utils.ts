@@ -1,5 +1,7 @@
 import { browser } from "webextension-polyfill-ts";
 
+// TODO : Improve store for multi key and complex key storage
+
 export async function save(data: Record<string, any>): Promise<void> {
   if (Object.keys(data).length !== 1) {
     throw Error("One and only one key-value pair accepted");
