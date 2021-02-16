@@ -1,7 +1,7 @@
 {
   "name": "kaggle-hawk-chrome-extension",
   "version": "1.0.0",
-  "description": "",
+  "description": "A utility for Kaggle users to track useful contest attributes.",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.3",
