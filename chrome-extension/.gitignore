@@ -1,4 +1,14 @@
 node_modules/
+**/.DS_Store
 
 # Ignore dist
 dist/
+
+# Ignore key
+key.pem
+
+# Ignore crx file
+kaggle-hawk.crx
+
+# Ignore zip file
+kaggle-hawk.zip
