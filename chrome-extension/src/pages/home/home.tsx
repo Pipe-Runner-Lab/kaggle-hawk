@@ -12,6 +12,8 @@ import { Billboard } from "./components/billboard";
 import Ticker from "react-ticker";
 import NewsTicker from "./components/news-ticker";
 import HomeScreenImage from "../../assets/home-screen.png";
+import NotFound from "../../components/not-found";
+import Loading from "../../components/loading";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -103,7 +105,13 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Home() {
   const classes = useStyles();
-  const { kaggleMap, kaggleDiffsMap, watchListIds } = useContext(DataContext);
+  const {
+    kaggleMap,
+    kaggleDiffsMap,
+    watchListIds,
+    error,
+    kaggleDataLoading,
+  } = useContext(DataContext);
 
   const numberOfCompetitions = Object.keys(kaggleMap).length;
   const numberOfWatches = watchListIds.length;
@@ -111,6 +119,14 @@ export default function Home() {
     acc += item.teamCount * item.maxTeamSize;
     return acc;
   }, 0);
+
+  if (error) {
+    return <NotFound />;
+  }
+
+  if (kaggleDataLoading) {
+    return <Loading />;
+  }
 
   return (
     <div className={classes.root}>

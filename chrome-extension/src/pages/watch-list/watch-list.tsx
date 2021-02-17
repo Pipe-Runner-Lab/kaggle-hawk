@@ -3,6 +3,7 @@ import React, { useContext } from "react";
 import Scrollbars from "react-custom-scrollbars";
 import EmptyWatchList from "../../components/empty-watch-list";
 import Loading from "../../components/loading";
+import NotFound from "../../components/not-found";
 import DataContext from "../../contexts/data-context";
 import WatchCard from "./components/watch-card";
 
@@ -22,13 +23,21 @@ export default function WatchList() {
     kaggleLeaderboardMap,
     toggleWatchListId,
     watchListIds,
+    error,
+    kaggleDataLoading,
   } = useContext(DataContext);
 
   const filteredList = Object.values(kaggleMap);
 
-  return filteredList.length === 0 ? (
-    <Loading />
-  ) : watchListIds.length === 0 ? (
+  if (error) {
+    return <NotFound />;
+  }
+
+  if (kaggleDataLoading) {
+    return <Loading />;
+  }
+
+  return watchListIds.length === 0 ? (
     <EmptyWatchList />
   ) : (
     <Scrollbars autoHide>

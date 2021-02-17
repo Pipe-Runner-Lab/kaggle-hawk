@@ -1,17 +1,11 @@
 import { browser } from "webextension-polyfill-ts";
+import { Serializable } from "./type";
 
-// TODO : Improve store for multi key and complex key storage
-
-export async function save(data: Record<string, any>): Promise<void> {
-  if (Object.keys(data).length !== 1) {
-    throw Error("One and only one key-value pair accepted");
-  }
-
-  const stringifiedObject = Object.keys(data).map((key) => ({
-    [key]: JSON.stringify(data[key]),
-  }));
-  await browser.storage.local.set(stringifiedObject[0]);
-  return;
+export async function save(key: string, value: Serializable): Promise<void> {
+  const stringifiedObject = {
+    [key]: JSON.stringify(value),
+  };
+  return browser.storage.local.set(stringifiedObject);
 }
 
 export async function retrieve(key: string): Promise<any | void> {
@@ -35,4 +29,3 @@ export async function syncRetrieve(key: string) {
   const value = await browser.storage.sync.get([key]);
   return value[key];
 }
-

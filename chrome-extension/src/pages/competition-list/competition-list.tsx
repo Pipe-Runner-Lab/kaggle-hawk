@@ -6,6 +6,7 @@ import CompetitionCard from "./components/competition-card";
 import Loading from "../../components/loading";
 import { SortKeys } from "../../types/sort";
 import { sortByTimeLeft, sortByTimeLeftOp } from "../../utils/sort";
+import NotFound from "../../components/not-found";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -34,9 +35,19 @@ export default function CompetitionList() {
     kaggleLeaderboardMap,
     toggleWatchListId,
     sortKey,
+    error,
+    kaggleDataLoading,
   } = useContext(DataContext);
 
   const filteredList = sort(sortKey)(Object.values(kaggleMap));
+
+  if (error) {
+    return <NotFound />;
+  }
+
+  if (kaggleDataLoading) {
+    return <Loading />;
+  }
 
   return Object.values(kaggleMap).length === 0 ? (
     <Loading />

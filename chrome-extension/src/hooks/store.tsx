@@ -5,9 +5,13 @@ import { retrieve, syncRetrieve, syncSave } from "../../common/store.utils";
 export function useSyncStore<T>(
   initialValue: T,
   storeKey: string
-): { state: T; setState: (value: T) => void; loading: boolean } {
+): {
+  state: T;
+  setState: (value: T) => void;
+  loading: boolean;
+} {
   const [state, setState] = useState<T>(initialValue);
-  const [loading, setLoading] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true);
 
   const syncSetState = (value: T): void => {
     setLoading(true);
@@ -24,21 +28,22 @@ export function useSyncStore<T>(
       setLoading(false);
     });
 
-    const listerner = (changes: Record<string, any>, namespace: string) => {
+    const listener = (changes: Record<string, any>, namespace: string) => {
       if (storeKey in changes && namespace === "sync") {
-        const oldValue = changes[storeKey].oldValues;
-        const newValues = changes[storeKey].newValues;
+        const oldValue = changes[storeKey]?.oldValue;
+        const newValue = changes[storeKey]?.newValue;
 
-        if (oldValue !== newValues) {
-          setState(newValues);
+        // TODO: Improve diff logic
+        if (oldValue !== newValue) {
+          setState(newValue);
         }
       }
     };
 
-    browser.storage.onChanged.addListener(listerner);
+    browser.storage.onChanged.addListener(listener);
 
     return () => {
-      browser.storage.onChanged.removeListener(listerner);
+      browser.storage.onChanged.removeListener(listener);
     };
   }, []);
   return { state, setState: syncSetState, loading };
@@ -50,34 +55,42 @@ export function useStore<T>(
 ): {
   state: T;
   setState: React.Dispatch<React.SetStateAction<T>>;
+  loading: boolean;
+  error: boolean;
 } {
   const [state, setState] = useState<T>(initialValue);
-  const [loading, setLoading] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<boolean>(false);
 
   useEffect(() => {
     setLoading(true);
+    setError(false);
     retrieve(storeKey).then((data) => {
-      data && setState(data);
+      data ? setState(data) : setError(true);
       setLoading(false);
     });
 
-    const listerner = (changes: Record<string, any>, namespace: string) => {
+    const listener = (changes: Record<string, any>, namespace: string) => {
       if (storeKey in changes && namespace === "local") {
-        const oldValue = JSON.parse(changes[storeKey].oldValues);
-        const newValues = JSON.parse(changes[storeKey].newValues);
+        // TODO: Improve code elegance
+        const oldValue =
+          changes[storeKey]?.oldValue && JSON.parse(changes[storeKey].oldValue);
+        const newValues =
+          changes[storeKey]?.newValue && JSON.parse(changes[storeKey].newValue);
 
-        // TODO : Improve diff
+        // TODO : Improve diff logic
         if (oldValue !== newValues) {
           setState(newValues);
+          setError(false);
         }
       }
     };
 
-    browser.storage.onChanged.addListener(listerner);
+    browser.storage.onChanged.addListener(listener);
 
     return () => {
-      browser.storage.onChanged.removeListener(listerner);
+      browser.storage.onChanged.removeListener(listener);
     };
   }, []);
-  return { state, setState };
+  return { state, setState, loading, error };
 }

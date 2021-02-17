@@ -15,6 +15,8 @@ const dataContext = createContext<{
   watchListIds: number[];
   toggleWatchListId: (id: number) => void;
   updateSortKey: (key: SortKeys) => void;
+  error: boolean;
+  kaggleDataLoading: boolean;
 }>({
   sortKey: null,
   kaggleMap: {},
@@ -23,6 +25,8 @@ const dataContext = createContext<{
   watchListIds: [],
   toggleWatchListId: (id: number) => {},
   updateSortKey: (key: SortKeys) => {},
+  error: false,
+  kaggleDataLoading: true,
 });
 
 export default dataContext;

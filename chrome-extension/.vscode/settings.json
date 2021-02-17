@@ -3,6 +3,7 @@
     "kaggle",
     "leaderboard",
     "list",
+    "serializable",
     "set",
     "webextension"
   ]

@@ -10,6 +10,7 @@ import {
 } from "../../types/kaggle";
 import { useStore, useSyncStore } from "../../hooks/store";
 import { StoreKey } from "../../../common/type";
+import NotFound from "../../components/not-found";
 
 function sanitizedContestMapGenerator(
   data: ContestMapType,
@@ -45,19 +46,25 @@ type DataProviderProps = {
 };
 
 export default function DataProvider({ children }: DataProviderProps) {
-  const { state: kaggleMap, setState: setKaggleMap } = useStore<ContestMapType>(
-    {},
-    StoreKey.KAGGLE_CONTEST
-  );
+  const {
+    state: kaggleMap,
+    setState: setKaggleMap,
+    loading: kaggleMapLoading,
+    error: kaggleMapError,
+  } = useStore<ContestMapType>({}, StoreKey.KAGGLE_CONTEST);
 
   const {
     state: kaggleLeaderboardMap,
     setState: setKaggleLeaderboardMap,
+    loading: kaggleLeaderboardLoading,
+    error: kaggleLeaderboardError,
   } = useStore<LeaderboardMapType>({}, StoreKey.KAGGLE_LEADERBOARD);
 
   const {
     state: kaggleDiffsMap,
     setState: setKaggleDiffsMap,
+    loading: kaggleDiffsLoading,
+    error: kaggleDiffsError,
   } = useStore<KaggleDiffsMapType>({}, StoreKey.KAGGLE_DIFFS);
 
   const { state: watchListIds, setState: setWatchListIds } = useSyncStore<
@@ -86,6 +93,13 @@ export default function DataProvider({ children }: DataProviderProps) {
     watchListIds
   );
 
+  const kaggleDataLoading =
+    kaggleDiffsLoading || kaggleLeaderboardLoading || kaggleMapLoading;
+
+  const error =
+    !kaggleDataLoading &&
+    (kaggleDiffsError || kaggleLeaderboardError || kaggleMapError);
+
   return (
     <DataContext.Provider
       value={{
@@ -96,6 +110,8 @@ export default function DataProvider({ children }: DataProviderProps) {
         watchListIds,
         toggleWatchListId,
         updateSortKey,
+        error,
+        kaggleDataLoading,
       }}
     >
       {children}

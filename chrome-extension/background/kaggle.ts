@@ -8,14 +8,10 @@ export namespace Kaggle {
     const kaggleLeaderboard = await FireStore.getKaggleLeaderboards();
     const kaggleDiffs = await FireStore.getKaggleDifs();
 
-    await save({
-      [StoreKey.KAGGLE_CONTEST]: kaggleList,
-    });
-    await save({
-      [StoreKey.KAGGLE_LEADERBOARD]: kaggleLeaderboard,
-    });
-    await save({
-      [StoreKey.KAGGLE_DIFFS]: kaggleDiffs,
-    });
+    await save(StoreKey.KAGGLE_CONTEST, kaggleList);
+    await save(StoreKey.KAGGLE_LEADERBOARD, kaggleLeaderboard);
+    await save(StoreKey.KAGGLE_DIFFS, kaggleDiffs);
+
+    console.info('Kaggle list refreshed...')
   }
 }
