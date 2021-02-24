@@ -1,9 +1,10 @@
 import { FireStore } from "./firebase.utils";
 import { save } from "../common/store.utils";
 import { StoreKey } from "../common/type";
+import { debounce } from "lodash";
 
-export namespace Kaggle {
-  export async function refreshKaggleList() {
+const refreshKaggleList = debounce(
+  async function () {
     console.log("Fetching Kaggle list...");
 
     const kaggleList = await FireStore.getKaggleCompetitions();
@@ -15,5 +16,14 @@ export namespace Kaggle {
     await save(StoreKey.KAGGLE_DIFFS, kaggleDiffs);
 
     console.info("Kaggle list refreshed...");
+  },
+  5000,
+  {
+    trailing: false,
+    leading: true,
   }
-}
+);
+
+export const Kaggle = {
+  refreshKaggleList,
+};

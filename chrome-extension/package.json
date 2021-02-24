@@ -12,7 +12,7 @@
     "@types/react-router-dom": "^5.1.7",
     "classnames": "^2.2.6",
     "firebase": "^8.2.4",
-    "lodash": "^4.17.20",
+    "lodash": "^4.17.21",
     "moment": "^2.29.1",
     "react": "^17.0.1",
     "react-custom-scrollbars": "^4.2.1",
