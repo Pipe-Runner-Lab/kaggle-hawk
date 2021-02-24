@@ -32,10 +32,10 @@ export namespace FireStore {
         return doc.data().map;
       }
       console.error("[contests] document not found in Kaggle collection");
-      return {};
+      return null;
     } catch (error) {
       console.error(error);
-      return {};
+      return null;
     }
   }
 
@@ -51,15 +51,15 @@ export namespace FireStore {
         return doc.data().map;
       }
       console.error("[leaderboard] document not found on Kaggle collection");
-      return {};
+      return null;
     } catch (error) {
       console.error(error);
-      return {};
+      return null;
     }
   }
 
   export async function getKaggleDifs() {
-    try{
+    try {
       const db = firebase.firestore();
       const collection = db.collection("kaggle");
       const docRef = collection.doc("diffs");
@@ -69,11 +69,10 @@ export namespace FireStore {
         return doc.data().map;
       }
       console.error("[diffs] document not found on Kaggle collection");
-      return {};
-    }
-    catch( error ){
+      return null;
+    } catch (error) {
       console.error(error);
-      return {}
+      return null;
     }
   }
 }

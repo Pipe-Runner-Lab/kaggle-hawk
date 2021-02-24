@@ -10,7 +10,7 @@ import {
 } from "../../types/kaggle";
 import { useStore, useSyncStore } from "../../hooks/store";
 import { StoreKey } from "../../../common/type";
-import NotFound from "../../components/not-found";
+import { browser } from "webextension-polyfill-ts";
 
 function sanitizedContestMapGenerator(
   data: ContestMapType,
@@ -99,6 +99,12 @@ export default function DataProvider({ children }: DataProviderProps) {
   const error =
     !kaggleDataLoading &&
     (kaggleDiffsError || kaggleLeaderboardError || kaggleMapError);
+
+  // if on open, no data found in cache
+  error &&
+    browser.runtime.sendMessage({
+      message: "REFRESH_KAGGLE_LIST",
+    });
 
   return (
     <DataContext.Provider

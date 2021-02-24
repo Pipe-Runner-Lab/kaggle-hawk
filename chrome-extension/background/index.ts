@@ -18,12 +18,19 @@ browser.runtime.onStartup.addListener(() => {
   Kaggle.refreshKaggleList();
 });
 
+browser.runtime.onMessage.addListener((message: any, sender) => {
+  const key = message.message;
+  switch (key) {
+    case "REFRESH_KAGGLE_LIST":
+      Kaggle.refreshKaggleList();
+      break;
+  }
+});
+
 browser.alarms.onAlarm.addListener(async (alarm) => {
   switch (alarm.name) {
     case AlarmName.REFRESH_KAGGLE_LIST:
       await Kaggle.refreshKaggleList();
-      break;
-    default:
       break;
   }
 });

@@ -4,6 +4,8 @@ import { StoreKey } from "../common/type";
 
 export namespace Kaggle {
   export async function refreshKaggleList() {
+    console.log("Fetching Kaggle list...");
+
     const kaggleList = await FireStore.getKaggleCompetitions();
     const kaggleLeaderboard = await FireStore.getKaggleLeaderboards();
     const kaggleDiffs = await FireStore.getKaggleDifs();
@@ -12,6 +14,6 @@ export namespace Kaggle {
     await save(StoreKey.KAGGLE_LEADERBOARD, kaggleLeaderboard);
     await save(StoreKey.KAGGLE_DIFFS, kaggleDiffs);
 
-    console.info('Kaggle list refreshed...')
+    console.info("Kaggle list refreshed...");
   }
 }

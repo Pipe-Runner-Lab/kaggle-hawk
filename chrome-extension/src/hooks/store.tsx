@@ -66,7 +66,7 @@ export function useStore<T>(
     setLoading(true);
     setError(false);
     retrieve(storeKey).then((data) => {
-      data ? setState(data) : setError(true);
+      data !== null ? setState(data) : setError(true);
       setLoading(false);
     });
 
