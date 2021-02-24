@@ -6,15 +6,7 @@ import Loading from "../../components/loading";
 import NotFound from "../../components/not-found";
 import DataContext from "../../contexts/data-context";
 import WatchCard from "./components/watch-card";
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    padding: theme.spacing(2),
-    "& > * + *": {
-      margin: theme.spacing(2, 0, 0, 0),
-    },
-  },
-}));
+import { useStyles } from "./styles";
 
 export default function WatchList() {
   const classes = useStyles();

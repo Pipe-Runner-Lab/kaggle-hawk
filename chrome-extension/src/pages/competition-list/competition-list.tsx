@@ -1,21 +1,12 @@
 import React, { useContext } from "react";
 import { Scrollbars } from "react-custom-scrollbars";
 import DataContext from "../../contexts/data-context";
-import { makeStyles } from "@material-ui/core/styles";
 import CompetitionCard from "./components/competition-card";
 import Loading from "../../components/loading";
 import { SortKeys } from "../../types/sort";
 import { sortByTimeLeft, sortByTimeLeftOp } from "../../utils/sort";
 import NotFound from "../../components/not-found";
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    padding: theme.spacing(2),
-    "& > * + *": {
-      margin: theme.spacing(2, 0, 0, 0),
-    },
-  },
-}));
+import { useStyles } from "./styles";
 
 const sort = (sortKey: SortKeys) => (list: any[]) => {
   switch (sortKey) {

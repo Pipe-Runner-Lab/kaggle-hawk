@@ -1,8 +1,8 @@
 import React from "react";
-import { makeStyles, createStyles, withStyles } from "@material-ui/core/styles";
+import { createStyles, withStyles } from "@material-ui/core/styles";
 import LinearProgress from "@material-ui/core/LinearProgress";
 
-const CustomProgressBar = withStyles((theme) =>
+const CustomProgressBar = withStyles(() =>
   createStyles({
     root: {
       height: 2,

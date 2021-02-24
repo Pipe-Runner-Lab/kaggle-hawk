@@ -6,7 +6,6 @@ import SearchIcon from "@material-ui/icons/Search";
 import SortIcon from "@material-ui/icons/Sort";
 import TrendingUpIcon from "@material-ui/icons/TrendingUp";
 import ListAltIcon from "@material-ui/icons/ListAlt";
-import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "../app-bar";
 import Spacer from "../spacer";
 import { Menu, MenuItem } from "@material-ui/core";
@@ -15,28 +14,7 @@ import DataContext from "../../contexts/data-context";
 import { SortKeys } from "../../types/sort";
 import { sortMenuData } from "./data/menu-data";
 import { useHistory, useLocation } from "react-router-dom";
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    width: "400px",
-    height: "580px",
-    display: "flex",
-    flexDirection: "column",
-  },
-  iconButton: {
-    padding: theme.spacing(1),
-  },
-  iconGroup: {
-    "& > * + *": {
-      marginLeft: theme.spacing(1),
-    },
-  },
-  contentContainer: {
-    backgroundColor: "#191919",
-    flex: 1,
-    overflow: "hidden",
-  },
-}));
+import { useStyles } from "./styles";
 
 type AppShellProps = {
   children: any;

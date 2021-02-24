@@ -1,11 +1,5 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-
-const useStyles = makeStyles((theme) => ({
-  spacer: {
-    flex: 1,
-  },
-}));
+import {useStyles} from './styles'
 
 export default function Spacer() {
   const classes = useStyles();
