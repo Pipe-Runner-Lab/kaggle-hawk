@@ -7,6 +7,8 @@ const refreshKaggleList = debounce(
   async function () {
     console.log("Fetching Kaggle list...");
 
+    await save(StoreKey.KAGGLE_DATA_LOADING, true);
+
     const kaggleList = await FireStore.getKaggleCompetitions();
     const kaggleLeaderboard = await FireStore.getKaggleLeaderboards();
     const kaggleDiffs = await FireStore.getKaggleDifs();
@@ -14,6 +16,8 @@ const refreshKaggleList = debounce(
     await save(StoreKey.KAGGLE_CONTEST, kaggleList);
     await save(StoreKey.KAGGLE_LEADERBOARD, kaggleLeaderboard);
     await save(StoreKey.KAGGLE_DIFFS, kaggleDiffs);
+
+    await save(StoreKey.KAGGLE_DATA_LOADING, false);
 
     console.info("Kaggle list refreshed...");
   },

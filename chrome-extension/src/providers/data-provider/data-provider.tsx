@@ -67,6 +67,11 @@ export default function DataProvider({ children }: DataProviderProps) {
     error: kaggleDiffsError,
   } = useStore<KaggleDiffsMapType>({}, StoreKey.KAGGLE_DIFFS);
 
+  const { state: kaggleDataLoading } = useStore<boolean>(
+    false,
+    StoreKey.KAGGLE_DATA_LOADING
+  );
+
   const { state: watchListIds, setState: setWatchListIds } = useSyncStore<
     number[]
   >([], StoreKey.WATCH_LIST_IDS);
@@ -92,9 +97,6 @@ export default function DataProvider({ children }: DataProviderProps) {
     kaggleMap,
     watchListIds
   );
-
-  const kaggleDataLoading =
-    kaggleDiffsLoading || kaggleLeaderboardLoading || kaggleMapLoading;
 
   const error =
     !kaggleDataLoading &&

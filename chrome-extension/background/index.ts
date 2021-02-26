@@ -15,10 +15,12 @@ browser.runtime.onInstalled.addListener(() => {
 });
 
 browser.runtime.onStartup.addListener(() => {
+  FireBase.initializeApp();
   Kaggle.refreshKaggleList();
 });
 
 browser.runtime.onMessage.addListener((message: any, sender) => {
+  FireBase.initializeApp();
   const key = message.message;
   switch (key) {
     case "REFRESH_KAGGLE_LIST":

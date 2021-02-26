@@ -14,8 +14,12 @@ const firebaseConfig = {
 
 export namespace FireBase {
   export function initializeApp() {
-    firebase.initializeApp(firebaseConfig);
-    console.info("Firebase SDK initialized...");
+    if (firebase.apps.length === 0) {
+      firebase.initializeApp(firebaseConfig);
+      console.info("Firebase SDK initialized...");
+    } else{
+      console.log("Firebase app already exists");
+    }
   }
 }
 
