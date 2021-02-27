@@ -18,6 +18,7 @@ import { LeaderboardType, SanitizedContestType } from "../../../types/kaggle";
 import { truncate } from "../../../utils/text";
 import ScoreTable from "../../../components/score-table";
 import { useStyles } from "./styles";
+import { useHistory } from "react-router-dom";
 
 type WatchCardProps = {
   toggleWatchListId: (id: number) => void;
@@ -44,6 +45,7 @@ export default function WatchCard({
   leaderboard,
 }: Partial<SanitizedContestType> & WatchCardProps) {
   const classes = useStyles();
+  const history = useHistory();
 
   function renderReward(reward: string) {
     switch (reward) {
@@ -107,7 +109,10 @@ export default function WatchCard({
           </div>
           <Spacer />
           <div className={classes.additionalActionsContainer}>
-            <IconButton className={classes.iconButton}>
+            <IconButton
+              onClick={() => history.push(`/competition-statistics/${id}`)}
+              className={classes.iconButton}
+            >
               <LowPriorityIcon fontSize="small" />
             </IconButton>
             {category !== "Getting Started" && (

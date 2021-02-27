@@ -7,6 +7,7 @@ import { SortKeys } from "../../types/sort";
 import { sortByTimeLeft, sortByTimeLeftOp } from "../../utils/sort";
 import NotFound from "../../components/not-found";
 import { useStyles } from "./styles";
+import EmptyList from "../../components/empty-list/empty-list";
 
 const sort = (sortKey: SortKeys) => (list: any[]) => {
   switch (sortKey) {
@@ -41,7 +42,7 @@ export default function CompetitionList() {
   }
 
   return Object.values(kaggleMap).length === 0 ? (
-    <Loading />
+    <EmptyList label="Competition List Empty..."/>
   ) : (
     <Scrollbars autoHide>
       <div className={classes.root}>

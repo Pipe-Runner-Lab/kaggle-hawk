@@ -7,6 +7,7 @@ import Home from "./pages/home";
 import CompetitionList from "./pages/competition-list";
 import WatchList from './pages/watch-list';
 import DataProvider from "./providers/data-provider";
+import CompetitionStatistics from "./pages/competition-statistics";
 
 const theme = createMuiTheme({
   palette: {
@@ -30,6 +31,9 @@ function App() {
               </Route>
               <Route path="/watch-list">
                 <WatchList />
+              </Route>
+              <Route path="/competition-statistics/:competitionId">
+                <CompetitionStatistics/>
               </Route>
             </AppShell>
           </DataProvider>

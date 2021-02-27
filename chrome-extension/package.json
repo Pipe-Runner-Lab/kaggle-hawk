@@ -10,6 +10,7 @@
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@types/react-router-dom": "^5.1.7",
+    "@types/victory": "^33.1.4",
     "classnames": "^2.2.6",
     "firebase": "^8.2.4",
     "lodash": "^4.17.21",
@@ -19,7 +20,8 @@
     "react-dom": "^17.0.1",
     "react-moment": "^1.1.1",
     "react-router-dom": "^5.2.0",
-    "react-ticker": "^1.2.2"
+    "react-ticker": "^1.2.2",
+    "victory": "^35.4.9"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.168",

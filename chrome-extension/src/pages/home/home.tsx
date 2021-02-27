@@ -19,7 +19,6 @@ export default function Home() {
   const classes = useStyles();
   const {
     kaggleMap,
-    kaggleDiffsMap,
     watchListIds,
     error,
     kaggleDataLoading,
@@ -27,7 +26,7 @@ export default function Home() {
 
   const numberOfCompetitions = Object.keys(kaggleMap).length;
   const numberOfWatches = watchListIds.length;
-  const numberOfPeople = Object.values(kaggleMap).reduce((acc, item, idx) => {
+  const numberOfPeople = Object.values(kaggleMap).reduce((acc, item) => {
     acc += item.teamCount * item.maxTeamSize;
     return acc;
   }, 0);

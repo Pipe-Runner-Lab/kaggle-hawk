@@ -1,7 +1,7 @@
 import { makeStyles } from "@material-ui/core/styles";
 import React, { useContext } from "react";
 import Scrollbars from "react-custom-scrollbars";
-import EmptyWatchList from "../../components/empty-watch-list";
+import EmptyList from "../../components/empty-list";
 import Loading from "../../components/loading";
 import NotFound from "../../components/not-found";
 import DataContext from "../../contexts/data-context";
@@ -30,7 +30,7 @@ export default function WatchList() {
   }
 
   return watchListIds.length === 0 ? (
-    <EmptyWatchList />
+    <EmptyList label="Watch List Empty..."/>
   ) : (
     <Scrollbars autoHide>
       <div className={classes.root}>

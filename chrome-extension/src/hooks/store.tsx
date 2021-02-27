@@ -8,24 +8,18 @@ export function useSyncStore<T>(
 ): {
   state: T;
   setState: (value: T) => void;
-  loading: boolean;
 } {
   const [state, setState] = useState<T>(initialValue);
-  const [loading, setLoading] = useState<boolean>(true);
 
   const syncSetState = (value: T): void => {
-    setLoading(true);
     syncSave(storeKey, value).then(() => {
       setState(value);
-      setLoading(false);
     });
   };
 
   useEffect(() => {
-    setLoading(true);
     syncRetrieve(storeKey).then((data) => {
       data && setState(data);
-      setLoading(false);
     });
 
     const listener = (changes: Record<string, any>, namespace: string) => {
@@ -46,7 +40,7 @@ export function useSyncStore<T>(
       browser.storage.onChanged.removeListener(listener);
     };
   }, []);
-  return { state, setState: syncSetState, loading };
+  return { state, setState: syncSetState };
 }
 
 export function useStore<T>(
@@ -55,19 +49,15 @@ export function useStore<T>(
 ): {
   state: T;
   setState: React.Dispatch<React.SetStateAction<T>>;
-  loading: boolean;
   error: boolean;
 } {
   const [state, setState] = useState<T>(initialValue);
-  const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<boolean>(false);
 
   useEffect(() => {
-    setLoading(true);
     setError(false);
     retrieve(storeKey).then((data) => {
       data !== null ? setState(data) : setError(true);
-      setLoading(false);
     });
 
     const listener = (changes: Record<string, any>, namespace: string) => {
@@ -92,5 +82,5 @@ export function useStore<T>(
       browser.storage.onChanged.removeListener(listener);
     };
   }, []);
-  return { state, setState, loading, error };
+  return { state, setState, error };
 }

@@ -49,21 +49,18 @@ export default function DataProvider({ children }: DataProviderProps) {
   const {
     state: kaggleMap,
     setState: setKaggleMap,
-    loading: kaggleMapLoading,
     error: kaggleMapError,
   } = useStore<ContestMapType>({}, StoreKey.KAGGLE_CONTEST);
 
   const {
     state: kaggleLeaderboardMap,
     setState: setKaggleLeaderboardMap,
-    loading: kaggleLeaderboardLoading,
     error: kaggleLeaderboardError,
   } = useStore<LeaderboardMapType>({}, StoreKey.KAGGLE_LEADERBOARD);
 
   const {
     state: kaggleDiffsMap,
     setState: setKaggleDiffsMap,
-    loading: kaggleDiffsLoading,
     error: kaggleDiffsError,
   } = useStore<KaggleDiffsMapType>({}, StoreKey.KAGGLE_DIFFS);
 
