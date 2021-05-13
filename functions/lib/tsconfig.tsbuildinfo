@@ -802,7 +802,7 @@
         "affectsGlobalScope": false
       },
       "../src/utils/kaggle.api.ts": {
-        "version": "1c98aca955b1b5b43162495bc382980479c86632ecda8975dca3535f15235a08",
+        "version": "69233307c8930863ca41062440911da36156f09f171b2a98b4e95404ddaa29eb",
         "signature": "59bb833ba9a6b244df21399778e0833babeada9f52352b3ae33ee7e6c37404d9",
         "affectsGlobalScope": false
       },
@@ -822,7 +822,7 @@
         "affectsGlobalScope": false
       },
       "../src/contests/kaggle.list.ts": {
-        "version": "546c027a97749af791c362d4767cfbd66fa38fa01207a880944be92585306cbe",
+        "version": "a5f03ac69a3b295205eb7c8e6354835afc3b16e92c12d66ce4111e3243f44068",
         "signature": "66035575b24efc2bbae26d4b665eeb7ab17b9c94ba9f19a13c83268849d8b655",
         "affectsGlobalScope": false
       },
