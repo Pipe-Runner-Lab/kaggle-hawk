@@ -6,7 +6,9 @@ const baseUrl = "https://www.kaggle.com/api/v1";
 const headers = {
   Authorization:
     "Basic aHVtYmxlZGlzY2lwdWx1czphNjJlMmU2MmViZjMwZDE0ZTIzZTRlM2I1YWJlYzY4Ng==",
-  Cookie: "ka_sessionid=249b1314ba23d178b94c59d4a5a9e712; GCLB=CJHmxoeQm97iUg",
+  
+  // Cookie addition should be automated
+  Cookie: "ka_sessionid=76f84f935c7015071526920e428dd695; GCLB=CJP1paaQzMHVGg",
 };
 
 /**

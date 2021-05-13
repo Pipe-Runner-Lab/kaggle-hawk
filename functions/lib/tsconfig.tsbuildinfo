@@ -571,7 +571,7 @@
         "signature": "01b8fe09ea0b18ceba458308fd349bd2545227995c1b370a6897ea7c8f4ae577",
         "affectsGlobalScope": false
       },
-      "../node_modules/google-auth-library/build/src/auth/envdetect.d.ts": {
+      "../node_modules/google-auth-library/build/src/auth/envDetect.d.ts": {
         "version": "ea9efc84288c02adb551e56f59235b5b3d613993acb0cbb74f1e1169a6ddaf23",
         "signature": "ea9efc84288c02adb551e56f59235b5b3d613993acb0cbb74f1e1169a6ddaf23",
         "affectsGlobalScope": false
@@ -611,7 +611,7 @@
         "signature": "b5f5fb8682b627fabd6173249639436577a19d93a36d09599879dd9dc104ac63",
         "affectsGlobalScope": false
       },
-      "../node_modules/teeny-request/build/src/teenystatistics.d.ts": {
+      "../node_modules/teeny-request/build/src/TeenyStatistics.d.ts": {
         "version": "eb8f406406a1c933f6793410a632a125d1698cfcfb7a947c54ba498616a65f94",
         "signature": "eb8f406406a1c933f6793410a632a125d1698cfcfb7a947c54ba498616a65f94",
         "affectsGlobalScope": false
@@ -661,7 +661,7 @@
         "signature": "1cd38a2f1587f9e3e2176502e9c5a31b618dc8a056b6067496a52411dd76b383",
         "affectsGlobalScope": false
       },
-      "../node_modules/@google-cloud/storage/build/src/hmackey.d.ts": {
+      "../node_modules/@google-cloud/storage/build/src/hmacKey.d.ts": {
         "version": "f247b3137976a84658c08855bf98933f2b23610b0721a150493826bd24f17a18",
         "signature": "f247b3137976a84658c08855bf98933f2b23610b0721a150493826bd24f17a18",
         "affectsGlobalScope": false
@@ -751,7 +751,7 @@
         "signature": "0e9dcd03ba9f6dfe4ba74845cd86920b5e5de6704c4c8eac2fd292817d77773e",
         "affectsGlobalScope": false
       },
-      "../node_modules/firebase-functions/lib/providers/remoteconfig.d.ts": {
+      "../node_modules/firebase-functions/lib/providers/remoteConfig.d.ts": {
         "version": "c4c0261b12524279056993ee8223189a7025f85f29d51317d417623b0fa5c090",
         "signature": "c4c0261b12524279056993ee8223189a7025f85f29d51317d417623b0fa5c090",
         "affectsGlobalScope": false
@@ -761,7 +761,7 @@
         "signature": "496d7fa3b5a354fbe298366e17ce6bc0ecec576df7fafb63bf12f22fc47d935b",
         "affectsGlobalScope": false
       },
-      "../node_modules/firebase-functions/lib/providers/testlab.d.ts": {
+      "../node_modules/firebase-functions/lib/providers/testLab.d.ts": {
         "version": "471805944a5f2b948be9b514ab4f1206bfdf285cf07ea9749820146750ffbfe1",
         "signature": "471805944a5f2b948be9b514ab4f1206bfdf285cf07ea9749820146750ffbfe1",
         "affectsGlobalScope": false
@@ -802,7 +802,7 @@
         "affectsGlobalScope": false
       },
       "../src/utils/kaggle.api.ts": {
-        "version": "7d04c29c3342ba02c870cee2b46fea1e4101670ed634714826ac7c345bd0a4d5",
+        "version": "1c98aca955b1b5b43162495bc382980479c86632ecda8975dca3535f15235a08",
         "signature": "59bb833ba9a6b244df21399778e0833babeada9f52352b3ae33ee7e6c37404d9",
         "affectsGlobalScope": false
       },
@@ -822,7 +822,7 @@
         "affectsGlobalScope": false
       },
       "../src/contests/kaggle.list.ts": {
-        "version": "a5f03ac69a3b295205eb7c8e6354835afc3b16e92c12d66ce4111e3243f44068",
+        "version": "546c027a97749af791c362d4767cfbd66fa38fa01207a880944be92585306cbe",
         "signature": "66035575b24efc2bbae26d4b665eeb7ab17b9c94ba9f19a13c83268849d8b655",
         "affectsGlobalScope": false
       },
@@ -1011,7 +1011,7 @@
         "../node_modules/@types/node/index.d.ts",
         "../node_modules/@types/node/stream.d.ts"
       ],
-      "../node_modules/@google-cloud/storage/build/src/hmackey.d.ts": [
+      "../node_modules/@google-cloud/storage/build/src/hmacKey.d.ts": [
         "../node_modules/@google-cloud/common/build/src/index.d.ts",
         "../node_modules/@google-cloud/storage/build/src/storage.d.ts"
       ],
@@ -1024,7 +1024,7 @@
         "../node_modules/@google-cloud/storage/build/src/bucket.d.ts",
         "../node_modules/@google-cloud/storage/build/src/channel.d.ts",
         "../node_modules/@google-cloud/storage/build/src/file.d.ts",
-        "../node_modules/@google-cloud/storage/build/src/hmackey.d.ts",
+        "../node_modules/@google-cloud/storage/build/src/hmacKey.d.ts",
         "../node_modules/@google-cloud/storage/build/src/iam.d.ts",
         "../node_modules/@google-cloud/storage/build/src/notification.d.ts",
         "../node_modules/@google-cloud/storage/build/src/signer.d.ts",
@@ -1044,7 +1044,7 @@
         "../node_modules/@google-cloud/storage/build/src/bucket.d.ts",
         "../node_modules/@google-cloud/storage/build/src/channel.d.ts",
         "../node_modules/@google-cloud/storage/build/src/file.d.ts",
-        "../node_modules/@google-cloud/storage/build/src/hmackey.d.ts",
+        "../node_modules/@google-cloud/storage/build/src/hmacKey.d.ts",
         "../node_modules/@types/node/index.d.ts",
         "../node_modules/@types/node/stream.d.ts"
       ],
@@ -1491,9 +1491,9 @@
         "../node_modules/firebase-functions/lib/providers/firestore.d.ts",
         "../node_modules/firebase-functions/lib/providers/https.d.ts",
         "../node_modules/firebase-functions/lib/providers/pubsub.d.ts",
-        "../node_modules/firebase-functions/lib/providers/remoteconfig.d.ts",
+        "../node_modules/firebase-functions/lib/providers/remoteConfig.d.ts",
         "../node_modules/firebase-functions/lib/providers/storage.d.ts",
-        "../node_modules/firebase-functions/lib/providers/testlab.d.ts"
+        "../node_modules/firebase-functions/lib/providers/testLab.d.ts"
       ],
       "../node_modules/firebase-functions/lib/handler-builder.d.ts": [
         "../node_modules/@types/express/index.d.ts",
@@ -1505,9 +1505,9 @@
         "../node_modules/firebase-functions/lib/providers/firestore.d.ts",
         "../node_modules/firebase-functions/lib/providers/https.d.ts",
         "../node_modules/firebase-functions/lib/providers/pubsub.d.ts",
-        "../node_modules/firebase-functions/lib/providers/remoteconfig.d.ts",
+        "../node_modules/firebase-functions/lib/providers/remoteConfig.d.ts",
         "../node_modules/firebase-functions/lib/providers/storage.d.ts",
-        "../node_modules/firebase-functions/lib/providers/testlab.d.ts"
+        "../node_modules/firebase-functions/lib/providers/testLab.d.ts"
       ],
       "../node_modules/firebase-functions/lib/index.d.ts": [
         "../node_modules/firebase-functions/lib/apps.d.ts",
@@ -1524,9 +1524,9 @@
         "../node_modules/firebase-functions/lib/providers/firestore.d.ts",
         "../node_modules/firebase-functions/lib/providers/https.d.ts",
         "../node_modules/firebase-functions/lib/providers/pubsub.d.ts",
-        "../node_modules/firebase-functions/lib/providers/remoteconfig.d.ts",
+        "../node_modules/firebase-functions/lib/providers/remoteConfig.d.ts",
         "../node_modules/firebase-functions/lib/providers/storage.d.ts",
-        "../node_modules/firebase-functions/lib/providers/testlab.d.ts"
+        "../node_modules/firebase-functions/lib/providers/testLab.d.ts"
       ],
       "../node_modules/firebase-functions/lib/providers/analytics.d.ts": [
         "../node_modules/firebase-functions/lib/cloud-functions.d.ts",
@@ -1563,7 +1563,7 @@
         "../node_modules/firebase-functions/lib/cloud-functions.d.ts",
         "../node_modules/firebase-functions/lib/function-configuration.d.ts"
       ],
-      "../node_modules/firebase-functions/lib/providers/remoteconfig.d.ts": [
+      "../node_modules/firebase-functions/lib/providers/remoteConfig.d.ts": [
         "../node_modules/firebase-functions/lib/cloud-functions.d.ts",
         "../node_modules/firebase-functions/lib/function-configuration.d.ts"
       ],
@@ -1571,7 +1571,7 @@
         "../node_modules/firebase-functions/lib/cloud-functions.d.ts",
         "../node_modules/firebase-functions/lib/function-configuration.d.ts"
       ],
-      "../node_modules/firebase-functions/lib/providers/testlab.d.ts": [
+      "../node_modules/firebase-functions/lib/providers/testLab.d.ts": [
         "../node_modules/firebase-functions/lib/cloud-functions.d.ts"
       ],
       "../node_modules/gaxios/build/src/common.d.ts": [
@@ -1605,7 +1605,7 @@
         "../node_modules/gaxios/build/src/index.d.ts",
         "../node_modules/google-auth-library/build/src/auth/computeclient.d.ts",
         "../node_modules/google-auth-library/build/src/auth/credentials.d.ts",
-        "../node_modules/google-auth-library/build/src/auth/envdetect.d.ts",
+        "../node_modules/google-auth-library/build/src/auth/envDetect.d.ts",
         "../node_modules/google-auth-library/build/src/auth/idtokenclient.d.ts",
         "../node_modules/google-auth-library/build/src/auth/jwtclient.d.ts",
         "../node_modules/google-auth-library/build/src/auth/oauth2client.d.ts",
@@ -1649,7 +1649,7 @@
       "../node_modules/google-auth-library/build/src/index.d.ts": [
         "../node_modules/google-auth-library/build/src/auth/computeclient.d.ts",
         "../node_modules/google-auth-library/build/src/auth/credentials.d.ts",
-        "../node_modules/google-auth-library/build/src/auth/envdetect.d.ts",
+        "../node_modules/google-auth-library/build/src/auth/envDetect.d.ts",
         "../node_modules/google-auth-library/build/src/auth/googleauth.d.ts",
         "../node_modules/google-auth-library/build/src/auth/iam.d.ts",
         "../node_modules/google-auth-library/build/src/auth/idtokenclient.d.ts",
@@ -1668,7 +1668,7 @@
         "../node_modules/@types/node/https.d.ts",
         "../node_modules/@types/node/index.d.ts",
         "../node_modules/@types/node/stream.d.ts",
-        "../node_modules/teeny-request/build/src/teenystatistics.d.ts"
+        "../node_modules/teeny-request/build/src/TeenyStatistics.d.ts"
       ],
       "../src/contests/kaggle.list.ts": [
         "../src/types/basic.ts",
@@ -1763,7 +1763,7 @@
         "../node_modules/@types/node/index.d.ts",
         "../node_modules/@types/node/stream.d.ts"
       ],
-      "../node_modules/@google-cloud/storage/build/src/hmackey.d.ts": [
+      "../node_modules/@google-cloud/storage/build/src/hmacKey.d.ts": [
         "../node_modules/@google-cloud/common/build/src/index.d.ts",
         "../node_modules/@google-cloud/storage/build/src/storage.d.ts"
       ],
@@ -1776,7 +1776,7 @@
         "../node_modules/@google-cloud/storage/build/src/bucket.d.ts",
         "../node_modules/@google-cloud/storage/build/src/channel.d.ts",
         "../node_modules/@google-cloud/storage/build/src/file.d.ts",
-        "../node_modules/@google-cloud/storage/build/src/hmackey.d.ts",
+        "../node_modules/@google-cloud/storage/build/src/hmacKey.d.ts",
         "../node_modules/@google-cloud/storage/build/src/iam.d.ts",
         "../node_modules/@google-cloud/storage/build/src/notification.d.ts",
         "../node_modules/@google-cloud/storage/build/src/signer.d.ts",
@@ -1796,7 +1796,7 @@
         "../node_modules/@google-cloud/storage/build/src/bucket.d.ts",
         "../node_modules/@google-cloud/storage/build/src/channel.d.ts",
         "../node_modules/@google-cloud/storage/build/src/file.d.ts",
-        "../node_modules/@google-cloud/storage/build/src/hmackey.d.ts",
+        "../node_modules/@google-cloud/storage/build/src/hmacKey.d.ts",
         "../node_modules/@types/node/index.d.ts",
         "../node_modules/@types/node/stream.d.ts"
       ],
@@ -2243,9 +2243,9 @@
         "../node_modules/firebase-functions/lib/providers/firestore.d.ts",
         "../node_modules/firebase-functions/lib/providers/https.d.ts",
         "../node_modules/firebase-functions/lib/providers/pubsub.d.ts",
-        "../node_modules/firebase-functions/lib/providers/remoteconfig.d.ts",
+        "../node_modules/firebase-functions/lib/providers/remoteConfig.d.ts",
         "../node_modules/firebase-functions/lib/providers/storage.d.ts",
-        "../node_modules/firebase-functions/lib/providers/testlab.d.ts"
+        "../node_modules/firebase-functions/lib/providers/testLab.d.ts"
       ],
       "../node_modules/firebase-functions/lib/handler-builder.d.ts": [
         "../node_modules/@types/express/index.d.ts",
@@ -2257,9 +2257,9 @@
         "../node_modules/firebase-functions/lib/providers/firestore.d.ts",
         "../node_modules/firebase-functions/lib/providers/https.d.ts",
         "../node_modules/firebase-functions/lib/providers/pubsub.d.ts",
-        "../node_modules/firebase-functions/lib/providers/remoteconfig.d.ts",
+        "../node_modules/firebase-functions/lib/providers/remoteConfig.d.ts",
         "../node_modules/firebase-functions/lib/providers/storage.d.ts",
-        "../node_modules/firebase-functions/lib/providers/testlab.d.ts"
+        "../node_modules/firebase-functions/lib/providers/testLab.d.ts"
       ],
       "../node_modules/firebase-functions/lib/index.d.ts": [
         "../node_modules/firebase-functions/lib/apps.d.ts",
@@ -2276,9 +2276,9 @@
         "../node_modules/firebase-functions/lib/providers/firestore.d.ts",
         "../node_modules/firebase-functions/lib/providers/https.d.ts",
         "../node_modules/firebase-functions/lib/providers/pubsub.d.ts",
-        "../node_modules/firebase-functions/lib/providers/remoteconfig.d.ts",
+        "../node_modules/firebase-functions/lib/providers/remoteConfig.d.ts",
         "../node_modules/firebase-functions/lib/providers/storage.d.ts",
-        "../node_modules/firebase-functions/lib/providers/testlab.d.ts"
+        "../node_modules/firebase-functions/lib/providers/testLab.d.ts"
       ],
       "../node_modules/firebase-functions/lib/providers/analytics.d.ts": [
         "../node_modules/firebase-functions/lib/cloud-functions.d.ts",
@@ -2315,7 +2315,7 @@
         "../node_modules/firebase-functions/lib/cloud-functions.d.ts",
         "../node_modules/firebase-functions/lib/function-configuration.d.ts"
       ],
-      "../node_modules/firebase-functions/lib/providers/remoteconfig.d.ts": [
+      "../node_modules/firebase-functions/lib/providers/remoteConfig.d.ts": [
         "../node_modules/firebase-functions/lib/cloud-functions.d.ts",
         "../node_modules/firebase-functions/lib/function-configuration.d.ts"
       ],
@@ -2323,7 +2323,7 @@
         "../node_modules/firebase-functions/lib/cloud-functions.d.ts",
         "../node_modules/firebase-functions/lib/function-configuration.d.ts"
       ],
-      "../node_modules/firebase-functions/lib/providers/testlab.d.ts": [
+      "../node_modules/firebase-functions/lib/providers/testLab.d.ts": [
         "../node_modules/firebase-functions/lib/cloud-functions.d.ts"
       ],
       "../node_modules/gaxios/build/src/common.d.ts": [
@@ -2357,7 +2357,7 @@
         "../node_modules/gaxios/build/src/index.d.ts",
         "../node_modules/google-auth-library/build/src/auth/computeclient.d.ts",
         "../node_modules/google-auth-library/build/src/auth/credentials.d.ts",
-        "../node_modules/google-auth-library/build/src/auth/envdetect.d.ts",
+        "../node_modules/google-auth-library/build/src/auth/envDetect.d.ts",
         "../node_modules/google-auth-library/build/src/auth/idtokenclient.d.ts",
         "../node_modules/google-auth-library/build/src/auth/jwtclient.d.ts",
         "../node_modules/google-auth-library/build/src/auth/oauth2client.d.ts",
@@ -2401,7 +2401,7 @@
       "../node_modules/google-auth-library/build/src/index.d.ts": [
         "../node_modules/google-auth-library/build/src/auth/computeclient.d.ts",
         "../node_modules/google-auth-library/build/src/auth/credentials.d.ts",
-        "../node_modules/google-auth-library/build/src/auth/envdetect.d.ts",
+        "../node_modules/google-auth-library/build/src/auth/envDetect.d.ts",
         "../node_modules/google-auth-library/build/src/auth/googleauth.d.ts",
         "../node_modules/google-auth-library/build/src/auth/iam.d.ts",
         "../node_modules/google-auth-library/build/src/auth/idtokenclient.d.ts",
@@ -2420,7 +2420,7 @@
         "../node_modules/@types/node/https.d.ts",
         "../node_modules/@types/node/index.d.ts",
         "../node_modules/@types/node/stream.d.ts",
-        "../node_modules/teeny-request/build/src/teenystatistics.d.ts"
+        "../node_modules/teeny-request/build/src/TeenyStatistics.d.ts"
       ],
       "../src/index.ts": [
         "../node_modules/firebase-functions/lib/index.d.ts"
@@ -2450,7 +2450,7 @@
       "../node_modules/@google-cloud/storage/build/src/bucket.d.ts",
       "../node_modules/@google-cloud/storage/build/src/channel.d.ts",
       "../node_modules/@google-cloud/storage/build/src/file.d.ts",
-      "../node_modules/@google-cloud/storage/build/src/hmackey.d.ts",
+      "../node_modules/@google-cloud/storage/build/src/hmacKey.d.ts",
       "../node_modules/@google-cloud/storage/build/src/iam.d.ts",
       "../node_modules/@google-cloud/storage/build/src/index.d.ts",
       "../node_modules/@google-cloud/storage/build/src/notification.d.ts",
@@ -2558,16 +2558,16 @@
       "../node_modules/firebase-functions/lib/providers/firestore.d.ts",
       "../node_modules/firebase-functions/lib/providers/https.d.ts",
       "../node_modules/firebase-functions/lib/providers/pubsub.d.ts",
-      "../node_modules/firebase-functions/lib/providers/remoteconfig.d.ts",
+      "../node_modules/firebase-functions/lib/providers/remoteConfig.d.ts",
       "../node_modules/firebase-functions/lib/providers/storage.d.ts",
-      "../node_modules/firebase-functions/lib/providers/testlab.d.ts",
+      "../node_modules/firebase-functions/lib/providers/testLab.d.ts",
       "../node_modules/gaxios/build/src/common.d.ts",
       "../node_modules/gaxios/build/src/gaxios.d.ts",
       "../node_modules/gaxios/build/src/index.d.ts",
       "../node_modules/google-auth-library/build/src/auth/authclient.d.ts",
       "../node_modules/google-auth-library/build/src/auth/computeclient.d.ts",
       "../node_modules/google-auth-library/build/src/auth/credentials.d.ts",
-      "../node_modules/google-auth-library/build/src/auth/envdetect.d.ts",
+      "../node_modules/google-auth-library/build/src/auth/envDetect.d.ts",
       "../node_modules/google-auth-library/build/src/auth/googleauth.d.ts",
       "../node_modules/google-auth-library/build/src/auth/iam.d.ts",
       "../node_modules/google-auth-library/build/src/auth/idtokenclient.d.ts",
@@ -2580,8 +2580,8 @@
       "../node_modules/google-auth-library/build/src/index.d.ts",
       "../node_modules/google-auth-library/build/src/transporters.d.ts",
       "../node_modules/gtoken/build/src/index.d.ts",
+      "../node_modules/teeny-request/build/src/TeenyStatistics.d.ts",
       "../node_modules/teeny-request/build/src/index.d.ts",
-      "../node_modules/teeny-request/build/src/teenystatistics.d.ts",
       "../node_modules/typescript/lib/lib.dom.d.ts",
       "../node_modules/typescript/lib/lib.dom.iterable.d.ts",
       "../node_modules/typescript/lib/lib.es2015.collection.d.ts",
