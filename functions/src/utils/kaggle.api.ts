@@ -7,8 +7,8 @@ const headers = {
   Authorization:
     "Basic aHVtYmxlZGlzY2lwdWx1czphNjJlMmU2MmViZjMwZDE0ZTIzZTRlM2I1YWJlYzY4Ng==",
   
-  // Cookie addition should be automated
-  Cookie: "ka_sessionid=76f84f935c7015071526920e428dd695; GCLB=CJP1paaQzMHVGg",
+  // // Cookie addition should be automated
+  // Cookie: "ka_sessionid=76f84f935c7015071526920e428dd695; GCLB=CJP1paaQzMHVGg",
 };
 
 /**
@@ -17,6 +17,7 @@ const headers = {
 async function getCompetitionList(): Promise<KaggleContestItem[]> {
   try {
     const config: Partial<AxiosRequestConfig> = {
+      withCredentials: true,
       method: "get",
       url: `${baseUrl}/competitions/list?category=all&sortBy=latestDeadline`,
       headers,
@@ -38,6 +39,7 @@ async function getContestLeaderboard(
 ): Promise<KaggleLeaderboardItem[]> {
   try {
     const config: Partial<AxiosRequestConfig> = {
+      withCredentials: true,
       method: "get",
       url: `${baseUrl}/competitions/${ref}/leaderboard/view`,
       headers,
