@@ -1,5 +1,6 @@
 const path = require("path");
 const ExtensionReloader = require("webpack-extension-reloader");
+const Dotenv = require("dotenv-webpack");
 
 module.exports = {
   entry: "./background/index.ts",
@@ -27,4 +28,7 @@ module.exports = {
   resolve: {
     extensions: [".tsx", ".ts"],
   },
+  plugins: [new Dotenv(
+    {path: '.env'}
+  )],
 };

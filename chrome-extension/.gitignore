@@ -12,3 +12,6 @@ kaggle-hawk.crx
 
 # Ignore zip file
 kaggle-hawk.zip
+
+# Environement file
+.env

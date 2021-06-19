@@ -2,14 +2,16 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
 
+console.log(process.env.API_KEY);
+
 const firebaseConfig = {
-  apiKey: "AIzaSyB7ePDPteLqajMV6bTBP9_QOqw7EogJY_A",
-  authDomain: "kaggle-hawk.firebaseapp.com",
-  projectId: "kaggle-hawk",
-  storageBucket: "kaggle-hawk.appspot.com",
-  messagingSenderId: "42783792066",
-  appId: "1:42783792066:web:17ac6dc0da5b6e6ec2145b",
-  measurementId: "G-TGVP9S4GMN",
+  apiKey: process.env.API_KEY,
+  authDomain: process.env.AUTH_DOMAIN,
+  projectId: process.env.PROJECT_ID,
+  storageBucket: process.env.STORAGE_BUCKET,
+  messagingSenderId: process.env.MESSAGING_SENDER_ID,
+  appId: process.env.APP_ID,
+  measurementId: process.env.MEASUREMENT_ID,
 };
 
 export namespace FireBase {
@@ -17,7 +19,7 @@ export namespace FireBase {
     if (firebase.apps.length === 0) {
       firebase.initializeApp(firebaseConfig);
       console.info("Firebase SDK initialized...");
-    } else{
+    } else {
       console.log("Firebase app already exists");
     }
   }
